@@ -44,18 +44,14 @@
       <input type="text" class="form-control-plaintext" name="1id_level" value="1" readonly>
     </div>
   </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck" required="required">
-      <a href="?page=about" class="form-check-label" for="gridCheck">
-        Saya menyetujui syarat dan ketentuan yang berlaku*
-      </a>
+  <div class="col-auto my-1">
+    <div class="custom-control custom-checkbox mr-sm-2">
+      <input type="checkbox" class="custom-control-input" id="regis" required="">
+      <label class="custom-control-label" for="regis">Saya menyetujui syarat dan ketentuan yang berlaku*</label>
     </div>
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck" checked="checked" disabled="disabled">
-      <label class="form-check-label" for="gridCheck">
-        Register akun sebagai Administrator.
-      </label>
+    <div class="custom-control custom-checkbox mr-sm-2">
+      <input type="checkbox" class="custom-control-input" id="customControlAutosizing" disabled="" checked="">
+      <label class="custom-control-label" for="customControlAutosizing">Register akun sebagai Administrator*</label>
     </div>
   </div>
   <input type="submit" name="reg_admin" value="Register" class="btn btn-primary">
@@ -105,13 +101,11 @@
               <input type="password" id="password" class="form-control" name="password" maxlength="25" placeholder="Password" required>
             </div>
           </div>
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck" required="required">
-              <label class="form-check-label" for="gridCheck">
-                Cek untuk login sebagai Administrator.
-              </label>
-            </div>
+          <div class="col-auto my-1">
+            <div class="custom-control custom-checkbox mr-sm-2">
+              <input type="checkbox" class="custom-control-input" id="login" required="">
+              <label class="custom-control-label" for="login">Login sebagai Administrator*</label>
+          </div>
           </div>
           <input type="submit" name="loginadmin" class="btn btn-primary btn-block" value="Log me in" />
         </form>
@@ -144,13 +138,11 @@
               <input type="password" id="password" class="form-control" name="password" maxlength="25" placeholder="Password" required>
             </div>
           </div>
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck" required="required">
-              <label class="form-check-label" for="gridCheck">
-                Cek untuk login sebagai Petugas.
-              </label>
-            </div>
+          <div class="col-auto my-1">
+            <div class="custom-control custom-checkbox mr-sm-2">
+              <input type="checkbox" class="custom-control-input" id="login" required="">
+              <label class="custom-control-label" for="login">Login sebagai Petugas*</label>
+          </div>
           </div>
           <input type="submit" name="login" class="btn btn-primary btn-block" value="Log me in" />
         </form>

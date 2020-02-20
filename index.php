@@ -27,7 +27,7 @@ include 'koneksi.php';
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top" >
     <div class="container">
       <a class="navbar-brand" href="index.php">Lelang IND</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +55,6 @@ include 'koneksi.php';
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
             <a class="dropdown-item"  href="?page=admin&perintah=account">Info Akun</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item"  href="?page=admin">Administrator</a>
             <a class="dropdown-item"  data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
         </li>
@@ -99,7 +98,7 @@ include 'koneksi.php';
 
   <!-- Footer -->
   <br>
-  <footer class="py-5 bg-dark">
+  <footer class="py-5 bg-secondary">
     <div class="container">
       <p class="m-0 text-left text-white">Copyright &copy; Lelang.co.id 2020</p>
       <p class="m-0 text-left text-white">Fakhirul Akmal | SMK YAJ DEPOK</p>

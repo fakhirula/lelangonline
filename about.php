@@ -1,7 +1,7 @@
 <br>
 <div class="container">
-<div class="jumbotron" style="background: url(img/jmbtrn.jpg);">
-  <div class="container">
+<div class="jumbotron" style="background: url(img/jumbo.jpg);">
+  <div class="container shadow p-4 rounded">
     <h1 class="display-4">About me</h1>
     <p class="lead">Ini adalah halaman tentang cara mengikuti lelang, syarat & ketentuan lelang dan juga halaman hubungi admin.</p>
   </div>
@@ -69,7 +69,7 @@
           </div>
           <div class="form-group">
             <label for="perihal">Perihal</label><br>
-            <select>
+            <select class="form-control">
               <option value="">Select one</option>
               <option value="saran">Saran</option>
               <option value="kritik">Kritik</option>

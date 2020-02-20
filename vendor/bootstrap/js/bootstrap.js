@@ -560,7 +560,7 @@
 
   var TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
 
-  var SWIPE_THRESHOLD = 40;
+  var SWIPE_THRESHOLD = 0;
   var Default = {
     interval: 5000,
     keyboard: true,

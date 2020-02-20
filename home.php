@@ -1,18 +1,18 @@
-  <!-- Page Content style="background: url(img/jmbtrn.jpg);"-->
-  <div class="container">
-<div class="jumbotron" >
-  <div class="container">
+  <!-- Page Content -->
+  <div class="container ">
+<div class="jumbotron shadow-lg rounded" style="background: url(img/jumbo.jpg);">
+  <div class="container shadow p-3 rounded">
     <h5 class="display-5">Selamat Datang</h5>
     <h1 class="display-4">Sistem Lelang Online</h1>
-    <p class="lead">Belum punya akun? atau sudah ada akun?</p>
-    <p class="lead">Pilih login sebagai <a href="?page=login" class="btn btn-primary">Masyarakat</a> / <a href="?page=admin" class="btn btn-primary">Admin</a></p>
+    <hr>
+    <p class="">Belum punya akun? atau sudah ada akun?</p>
+    <p class="">Pilih sebagai <a href="?page=login" class="btn btn-primary">Masyarakat</a> / <a href="?page=admin" class="btn btn-primary">Admin</a></p>
   </div>
 </div>
-    
 
     <div class="row">
       <div class="col-md-4 mb-5">
-        <div class="card h-100">
+        <div class="card h-100 shadow p-3 rounded">
           <img class="card-img-top" src="http://placehold.it/300x200" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div class="col-md-4 mb-5">
-        <div class="card h-100">
+        <div class="card h-100 shadow p-3 rounded">
           <img class="card-img-top" src="http://placehold.it/300x200" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>
@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="col-md-4 mb-5">
-        <div class="card h-100">
+        <div class="card h-100 shadow p-3 rounded">
           <img class="card-img-top" src="http://placehold.it/300x200" alt="">
           <div class="card-body">
             <h4 class="card-title">Card title</h4>

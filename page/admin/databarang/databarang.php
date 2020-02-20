@@ -6,8 +6,7 @@
       <div class="col-lg-3">
         <h1 class="my-4">Selamat Datang</h1>
         <div class="list-group">
-          <a href="?page=admin" class="list-group-item active">Info Akun</a>
-          <a href="?page=admin&perintah=databarang" class="list-group-item">Data Barang</a>
+          <a href="?page=admin" class="list-group-item active">Data Barang</a>
         </div>
       </div>
       <!-- /.col-lg-3 -->
@@ -20,9 +19,11 @@
               <i class="fas fa-table"></i>
               Data Table Barang</div>
             <div class="card-body">
+              <a href="" class="btn btn-outline-success">Tambah</a>
+              <a href="" class="btn btn-outline-warning" style="float: right;">Print</a>
               <div class="table-responsive">
-
 <table class="table table-striped">
+  <br>
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -34,6 +35,7 @@
     </tr>
   </thead>
   <tbody>
+    <!--
     <?php 
                 
                 $id_barang = 1;
@@ -59,7 +61,7 @@
 
 
 
-        <?php } ?>
+        <?php } ?> -->
   </tbody>
 </table>
 </div>

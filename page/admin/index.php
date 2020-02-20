@@ -41,10 +41,10 @@ include 'koneksi.php';
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="?page=lelang">Data Lelang</a>
+            <a class="nav-link" href="?page=admin&perintah=databarang">Data Barang</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="?page=about">Persetujuan Data</a>
+            <a class="nav-link" href="?page=admin&perintah=persetujuandata">Persetujuan Data Lelang</a>
           </li>
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="uDropdown" level="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,17 +74,31 @@ include 'koneksi.php';
       }
       if ($page == "lelang") {
         if ($perintah == "") {
-          include 'page/lelang/lelang.php';
-        }elseif ($perintah == 'detailbarang') {
-          include 'page/lelang/detailbarang.php';
+          include '../lelang/detailbarang.php';
+        }elseif ($perintah == 'delete') {
+          include './lelang/delete.php';
         }elseif ($perintah == 'penjual') {
           include 'page/lelang/penjual.php';
         }
       }if ($page == "admin") {
         if ($perintah == "") {
           include 'page/admin/admin.php';
-        }if ($perintah == "account") {
-          include 'page/admin/account.php';
+        }elseif ($perintah == "account") {
+          include 'account.php';
+        }elseif ($perintah == "databarang") {
+          include 'databarang/databarang.php';
+        }elseif ($perintah == "hapus") {
+          include 'databarang/delete.php';
+        }elseif ($perintah == "tambah") {
+          include 'databarang/tambah.php';
+        }elseif ($perintah == "edit") {
+          include 'databarang/edit.php';
+        }elseif ($perintah == "persetujuandata") {
+          include 'databarang/persetujuanlelang.php';
+        }elseif ($perintah == "setujui") {
+          include 'databarang/setujui.php';
+        }elseif ($perintah == "tidaksetuju") {
+          include 'databarang/tidaksetuju.php';
         }
       }
       elseif ($page == ""){
