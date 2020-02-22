@@ -35,9 +35,12 @@
     </tr>
   </thead>
   <tbody>
-    <!--
     <?php 
-                
+                $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
+
+                  if(mysqli_connect_error()){
+                    echo 'Gagal melakukan koneksi ke Database : '.mysqli_connect_error();
+                  }
                 $id_barang = 1;
 
                 $sql = $koneksi->query("select * from tb_barang");
@@ -61,7 +64,7 @@
 
 
 
-        <?php } ?> -->
+        <?php } ?>
   </tbody>
 </table>
 </div>
