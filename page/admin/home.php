@@ -1,9 +1,25 @@
   <!-- Page Content style="background: url(img/jmbtrn.jpg);"-->
   <div class="container">
+    <?php
+if(isset($_SESSION["username"]))  
+ { 
+ ?>
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Hi <?php echo $_SESSION['username']; ?>!</strong> Kamu berhasil login sebagai <?php echo $_SESSION['level']; ?>.
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+<?php } ?>
 <div class="jumbotron" >
   <div class="container">
-    <h5 class="display-5">Selamat Datang</h5>
+    <h5 class="display-5">Selamat Datang di halaman Admin & Petugas.</h5>
     <h1 class="display-4">Sistem Lelang Online</h1>
+    <hr>
+    <?php 
+    if(!isset($_SESSION['username'])) { ?>
+    <p class="">Belum punya akun? atau sudah ada akun?</p><a href="?page=login" class="btn btn-primary">Klik!</a></p>
+    <?php } ?>
   </div>
 </div>
     

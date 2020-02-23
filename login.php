@@ -1,5 +1,9 @@
 <?php
-session_start();
+session_start();  
+ if(isset($_SESSION["username"]))  
+ {  
+      header("location:index.php");  
+ }  
 $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
 
 
@@ -9,7 +13,7 @@ if(isset($_POST["register"]))
   $nama_lengkap = mysqli_real_escape_string($koneksi, $_POST['nama_lengkap']);
   $username = mysqli_real_escape_string($koneksi, $_POST["username"]);
   $password = mysqli_real_escape_string($koneksi, $_POST["password"]);
-  $password = md5($password);
+  $password = base64_encode($password);
   $telp = mysqli_real_escape_string($koneksi, $_POST['telp']);
 
   $simpan = $_POST['register'];
@@ -28,7 +32,24 @@ if(isset($_POST["register"]))
     }
   }
 }
- ?>
+ if(isset($_POST["login"]))  
+ {
+           $username = mysqli_real_escape_string($koneksi, $_POST["username"]);  
+           $password = mysqli_real_escape_string($koneksi, $_POST["password"]); 
+           $query = "SELECT * FROM tb_masyarakat WHERE username = '$username' AND password = '$password'";  
+           $result = mysqli_query($koneksi, $query);  
+           if(mysqli_num_rows($result) > 0)  
+           {
+                $_SESSION['username'] = $username;
+                $_SESSION['level'] = 'Masyarakat';  
+                header("location:index.php");  
+           }  
+           else  
+           {  
+                echo '<script>alert("Wrong User Details")</script>';  
+           }   
+ }  
+ ?>  
 <div class="container">
     <div class="row">
       <div class="col-md-8 mb-5">

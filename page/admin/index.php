@@ -3,6 +3,7 @@
 ob_start();
 session_start();
 include 'koneksi.php';
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,6 +41,8 @@ include 'koneksi.php';
               <span class="sr-only">(current)</span>
             </a>
           </li>
+          <?php 
+          if(isset($_SESSION['username'])) { ?>
           <li class="nav-item">
             <a class="nav-link" href="?page=admin&perintah=databarang">Data Barang</a>
           </li>
@@ -56,6 +59,7 @@ include 'koneksi.php';
             <a class="dropdown-item"  data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
         </li>
+        <?php } ?>
         </ul>
       </div>
     </div>
@@ -103,6 +107,8 @@ include 'koneksi.php';
       }
       elseif ($page == ""){
         include "home.php";
+    }elseif ($page == "login"){
+      include "loginadmin.php";
     }
   ?>
 

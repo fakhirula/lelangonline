@@ -1,4 +1,55 @@
 <?php error_reporting(E_ALL ^ (E_NOTICE | E_WARNING)); ?>
+<?php
+session_start();  
+ if(isset($_SESSION["username"]))  
+ {  
+      header("location:index.php");  
+ }  
+$koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
+
+
+//Reg Masyarakat
+if(isset($_POST["reg_admin"]))  
+ {   
+  $nama_petugas = mysqli_real_escape_string($koneksi, $_POST['nama_petugas']);
+  $username = mysqli_real_escape_string($koneksi, $_POST["username"]);
+  $password = mysqli_real_escape_string($koneksi, $_POST["password"]);
+  $id_level = mysqli_real_escape_string($koneksi, $_POST['id_level']);
+
+  $simpan = $_POST['reg_admin'];
+
+  if ($simpan) {  
+    $sql = $koneksi->query("insert into tb_petugas (nama_petugas, username, password, id_level) values('$nama_petugas', '$username', '$password', '$id_level')");
+    
+    if ($sql){
+      ?>
+        <script type="text/javascript">
+          alert("Register Administrator data is saved");
+          window.location.href="?page=login";
+        </script>
+
+      <?php
+    }
+  }
+}
+ if(isset($_POST["login"]))  
+ {
+           $username = mysqli_real_escape_string($koneksi, $_POST["username"]);  
+           $password = mysqli_real_escape_string($koneksi, $_POST["password"]); 
+           $query = "SELECT * FROM tb_masyarakat WHERE username = '$username' AND password = '$password'";  
+           $result = mysqli_query($koneksi, $query);  
+           if(mysqli_num_rows($result) > 0)  
+           {
+                $_SESSION['username'] = $username;
+                $_SESSION['level'] = 'Masyarakat';  
+                header("location:index.php");  
+           }  
+           else  
+           {  
+                echo '<script>alert("Wrong User Details")</script>';  
+           }   
+ }  
+ ?>  
 <div class="container">
     <div class="row">
       <div class="col-md-8 mb-5">
@@ -10,38 +61,31 @@
     <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Administrator</a>
   </div>
 </nav>
-
-
-
-
-
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
     <div class="container">
       <div class="card card-login mx-auto mt-5">
         <div class="card-body">
           <div class="login">
-
-
 <form method="post">
   <div class="form-row">
     <div class="form-group col-md-12">
       <label>Nama Petugas</label>
-      <input type="text" class="form-control" maxlength="25" name ="1nama_petugas" placeholder="Nama Lengkap" required>
+      <input type="text" class="form-control" maxlength="25" name ="nama_petugas" placeholder="Nama Lengkap" required>
     </div>
     <div class="form-group col-md-6">
       <label>Username</label>
-      <input type="text" class="form-control" maxlength="25" name="1username" placeholder="Username" required>
+      <input type="text" class="form-control" maxlength="25" name="username" placeholder="Username" required>
     </div>
     <div class="form-group col-md-6">
       <label>Password</label>
-      <input type="password" class="form-control" maxlength="25" name="1password" placeholder="Password" required>
+      <input type="password" class="form-control" maxlength="25" minlength="8" name="password" placeholder="Password" required>
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-md-12">
       <label>Level</label>
-      <input type="text" class="form-control-plaintext" name="1id_level" value="1" readonly>
+      <input type="text" class="form-control-plaintext" name="id_level" value="1" readonly>
     </div>
   </div>
   <div class="col-auto my-1">
@@ -55,7 +99,6 @@
     </div>
   </div>
   <input type="submit" name="reg_admin" value="Register" class="btn btn-primary">
-  <a href="page/admin/index.php">asdasda</a>
 </form>
         </div>
       </div>
@@ -107,7 +150,7 @@
               <label class="custom-control-label" for="login">Login sebagai Administrator*</label>
           </div>
           </div>
-          <input type="submit" name="loginadmin" class="btn btn-primary btn-block" value="Log me in" />
+          <input type="submit" name="log_admin" class="btn btn-primary btn-block" value="Log me in" />
         </form>
         </div>
       </div>
@@ -144,7 +187,7 @@
               <label class="custom-control-label" for="login">Login sebagai Petugas*</label>
           </div>
           </div>
-          <input type="submit" name="login" class="btn btn-primary btn-block" value="Log me in" />
+          <input type="submit" name="log_petugas" class="btn btn-primary btn-block" value="Log me in" />
         </form>
         </div>
       </div>
@@ -156,89 +199,3 @@
   
 </div>
 </div>
-<?php
-$db_host = "localhost";
-$db_user = "root";
-$db_pass = "";
-$db_name = "dblelang";
-
-$koneksi = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
-
-if(mysqli_connect_error()){
-  echo 'Gagal melakukan koneksi ke Database : '.mysqli_connect_error();
-}
-
-//Reg Admin  
-  $nama_petugas1 = $_POST['1nama_petugas'];
-  $username1 = $_POST['1username'];
-  $password1 = $_POST['1password'];
-  $id_level = $_POST['id_level'];
-
-  $simpan1 = $_POST['reg_admin'];
-
-  if ($simpan1) {  
-    $sql = $koneksi->query("insert into tb_petugas (nama_petugas, username, password, id_level) values('$nama_petugas1', '$username', '$password1', '$id_level')");
-    
-    if ($sql){
-      ?>
-        <script type="text/javascript">
-          alert("Register Administrator data is saved");
-          window.location.href="?page=register";
-        </script>
-
-      <?php
-    }
-}
- ?>
-
-
-<?php
-//Reg Masyarakat
-
-  $nama_lengkap = $_POST['2nama_lengkap'];
-  $username = $_POST['2username'];
-  $password = $_POST['2password'];
-  $telp = $_POST['2telp'];
-
-  $simpan = $_POST['reg_masyarakat'];
-
-  if ($simpan) {  
-    $sql = $koneksi->query("insert into tb_masyarakat (nama_lengkap, username, password, telp) values('$nama_lengkap', '$username', '$password', '$telp')");
-    
-    if ($sql){
-      ?>
-        <script type="text/javascript">
-          alert("Register Masyarakat data is saved");
-          window.location.href="?page=about";
-        </script>
-
-      <?php
-    }
-}
- ?>
-
-
-
- <?php
- //Login Admin
-if(isset($_POST['loginadmin'])){
-
-    //include("koneksi.php");
-    
-    $username   = $_POST['username'];
-    $password   = $_POST['password'];
-    
-    $query = mysqli_query($koneksi, "SELECT * FROM tb_petugas WHERE username='$username' AND password='$password'");
-    if(mysqli_num_rows($query) == 0){
-        echo '<div class="alert alert-danger">Username atau Password salah.</div>';
-    }else{
-        $row = mysqli_fetch_assoc($query);
-            header("Location: index.php");
-        
-    }
-}
-?>
-
-
-
- 

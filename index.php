@@ -47,7 +47,8 @@ include 'koneksi.php';
             <a class="nav-link" href="?page=about">About</a>
           </li>
 
-        
+        <?php 
+        if(isset($_SESSION['username'])) { ?>
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" level="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-user-circle fa-fw"></i>
@@ -58,6 +59,7 @@ include 'koneksi.php';
             <a class="dropdown-item"  data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
         </li>
+      <?php } ?>
         </ul>
       </div>
     </div>
@@ -82,20 +84,14 @@ include 'koneksi.php';
         }elseif ($perintah == 'penjual') {
           include 'page/lelang/penjual.php';
         }
-      }if ($page == "admin") {
-        if ($perintah == "") {
-          include 'page/admin/login.php';
-        }if ($perintah == "account") {
-          include 'page/admin/account.php';
-        }
       }
-      elseif ($page == ""){
+      
+      if ($page == ""){
         include "home.php";
     }elseif ($page == "login"){
       include "login.php";
     }
   ?>
-
   <!-- Footer -->
   <br>
   <footer class="py-5 bg-secondary">
