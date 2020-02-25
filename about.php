@@ -1,9 +1,10 @@
 <br>
 <div class="container">
-<div class="jumbotron" style="background: url(img/jumbo.jpg);">
-  <div class="container shadow p-4 rounded">
-    <h1 class="display-4">About me</h1>
+<div class="jumbotron shadow rounded" style="background: url(img/jumbotron.jpg);">
+  <div class="container">
+    <h1 class="display-4">User Manual</h1>
     <p class="lead">Ini adalah halaman tentang cara mengikuti lelang, syarat & ketentuan lelang dan juga halaman hubungi admin.</p>
+    <hr>
   </div>
 </div>
   <div class="row">

@@ -3,6 +3,11 @@
 ob_start();
 session_start();
 include 'koneksi.php';
+  $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
+
+  $username = $_SESSION['username'];
+  $query = mysqli_query($koneksi, "SELECT * FROM tb_masyarakat where username = '$username'");
+  $row_akun = mysqli_fetch_array($query);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +32,7 @@ include 'koneksi.php';
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top" >
+  <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top shadow" style="background: url(img/jumbotron.jpg);">
     <div class="container">
       <a class="navbar-brand" href="index.php">Lelang IND</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,17 +49,17 @@ include 'koneksi.php';
             <a class="nav-link" href="?page=lelang">Lelang</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="?page=about">About</a>
+            <a class="nav-link" href="?page=about">User Manual</a>
           </li>
 
         <?php 
         if(isset($_SESSION['username'])) { ?>
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" level="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>
+            <i class="fas fa-user-circle fa-fw"><?php echo $row_akun['nama_lengkap'];?></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item"  href="?page=admin&perintah=account">Info Akun</a>
+            <a class="dropdown-item"  href="?page=akunmasyarakat">Info Akun</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item"  data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
@@ -90,6 +95,8 @@ include 'koneksi.php';
         include "home.php";
     }elseif ($page == "login"){
       include "login.php";
+    }elseif ($page == "akunmasyarakat"){
+      include "akunmasyarakat.php";
     }
   ?>
   <!-- Footer -->

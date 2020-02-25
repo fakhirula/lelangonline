@@ -40,6 +40,12 @@ if(isset($_POST["register"]))
            $result = mysqli_query($koneksi, $query);  
            if(mysqli_num_rows($result) > 0)  
            {
+            $row_akun = mysqli_fetch_array($query);
+
+                $_SESSION['tbmasyarakat_id'] = $row_akun["id_user"];
+                $_SESSION['tbmasyarakat_nama'] = $row_akun["nama_lengkap"];
+                $_SESSION['tbmasyarakat_tel'] = $row_akun["telp"];
+
                 $_SESSION['username'] = $username;
                 $_SESSION['level'] = 'Masyarakat';  
                 header("location:index.php");  

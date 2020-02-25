@@ -41,7 +41,7 @@
     foreach( $querykamu as $row ) :
 ?>
       <div class="col-md-4 mb-5">
-        <div class="card h-100 shadow p-3 rounded">
+        <div class="card h-100 border-primary shadow p-3 rounded">
           <img class="card-img-top" src="http://placehold.it/300x200" alt="">
           <div class="card-body">
             <h4 class="card-title"><?= $row['nama_barang'] ?></h4>
