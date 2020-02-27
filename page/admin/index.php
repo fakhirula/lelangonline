@@ -64,7 +64,7 @@ $row_akun = mysqli_fetch_array($query);
             <i class="fas fa-user-circle fa-fw"><?php echo $row_akun['nama_petugas'];?></i>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item"  href="?page=akunmasyarakat">Info Akun</a>
+            <a class="dropdown-item"  href="?page=account">Info Akun</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item"  data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
@@ -86,11 +86,7 @@ $row_akun = mysqli_fetch_array($query);
           include 'about.php';
         }
       }if ($page == "admin") {
-        if ($perintah == "") {
-          include 'page/admin/admin.php';
-        }elseif ($perintah == "account") {
-          include 'account.php';
-        }elseif ($perintah == "databarang") {
+        if ($perintah == "databarang") {
           include 'databarang/databarang.php';
         }elseif ($perintah == "hapus") {
           include 'databarang/delete.php';
@@ -110,6 +106,8 @@ $row_akun = mysqli_fetch_array($query);
         include "home.php";
     }elseif ($page == "login"){
       include "loginadmin.php";
+    }elseif ($page == "account") {
+      include 'account.php';
     }
   ?>
 

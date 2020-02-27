@@ -1,5 +1,4 @@
-  <!-- Page Content style="background: url(img/jmbtrn.jpg);"-->
-  <div class="container">
+   <div class="container">
     <?php
 if(isset($_SESSION["username"]))  
  { 
