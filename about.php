@@ -1,6 +1,6 @@
 <br>
 <div class="container">
-<div class="jumbotron shadow rounded" style="background: url(img/jumbotron.jpg);">
+<div class="jumbotron card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
   <div class="container">
     <h1 class="display-4">User Manual</h1>
     <p class="lead">Ini adalah halaman tentang cara mengikuti lelang, syarat & ketentuan lelang dan juga halaman hubungi admin.</p>

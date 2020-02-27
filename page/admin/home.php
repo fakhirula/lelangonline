@@ -5,13 +5,13 @@ if(isset($_SESSION["username"]))
  { 
  ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <strong>Hi <?php echo $_SESSION['username']; ?>!</strong> Kamu berhasil login sebagai <?php echo $_SESSION['level']; ?>.
+      <strong>Hi <?php echo $row_akun['nama_petugas']; ?>!</strong> Kamu berhasil login sebagai <?php echo $_SESSION['level']; ?>.
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
 <?php } ?>
-<div class="jumbotron" >
+<div class="jumbotron card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
   <div class="container">
     <h5 class="display-5">Selamat Datang di halaman Admin & Petugas.</h5>
     <h1 class="display-4">Sistem Lelang Online</h1>

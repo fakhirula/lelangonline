@@ -4,7 +4,10 @@ ob_start();
 session_start();
 include 'koneksi.php';
   $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
-
+if($_SESSION["level"]=='Administrator')  
+ {  
+      header("location:page/admin/index.php");  
+ }
   $username = $_SESSION['username'];
   $query = mysqli_query($koneksi, "SELECT * FROM tb_masyarakat where username = '$username'");
   $row_akun = mysqli_fetch_array($query);

@@ -3,6 +3,15 @@
 ob_start();
 session_start();
 include 'koneksi.php';
+$koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
+
+if($_SESSION["level"]=='Masyarakat')  
+ {  
+      header("location:../../index.php");  
+ } 
+$username = $_SESSION['username'];
+$query = mysqli_query($koneksi, "SELECT * FROM tb_petugas where username = '$username'");
+$row_akun = mysqli_fetch_array($query);
  
 ?>
 <!DOCTYPE html>
@@ -40,7 +49,7 @@ include 'koneksi.php';
             <a class="nav-link" href="index.php">Home
               <span class="sr-only">(current)</span>
             </a>
-          </li>
+          </li> 
           <?php 
           if(isset($_SESSION['username'])) { ?>
           <li class="nav-item">
@@ -49,12 +58,13 @@ include 'koneksi.php';
           <li class="nav-item">
             <a class="nav-link" href="?page=admin&perintah=persetujuandata">Persetujuan Data Lelang</a>
           </li>
+
           <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="uDropdown" level="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"></i>
+          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" level="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-user-circle fa-fw"><?php echo $row_akun['nama_petugas'];?></i>
           </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="uDropdown">
-            <a class="dropdown-item"  href="?page=admin&perintah=account">Info Akun</a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+            <a class="dropdown-item"  href="?page=akunmasyarakat">Info Akun</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item"  data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
@@ -74,15 +84,6 @@ include 'koneksi.php';
       if ($page == "about") {
         if ($perintah == "") {
           include 'about.php';
-        }
-      }
-      if ($page == "lelang") {
-        if ($perintah == "") {
-          include '../lelang/detailbarang.php';
-        }elseif ($perintah == 'delete') {
-          include './lelang/delete.php';
-        }elseif ($perintah == 'penjual') {
-          include 'page/lelang/penjual.php';
         }
       }if ($page == "admin") {
         if ($perintah == "") {

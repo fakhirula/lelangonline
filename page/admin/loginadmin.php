@@ -32,16 +32,18 @@ if(isset($_POST["reg_admin"]))
     }
   }
 }
- if(isset($_POST["login"]))  
+ if(isset($_POST["log_admin"]))  
  {
            $username = mysqli_real_escape_string($koneksi, $_POST["username"]);  
            $password = mysqli_real_escape_string($koneksi, $_POST["password"]); 
-           $query = "SELECT * FROM tb_masyarakat WHERE username = '$username' AND password = '$password'";  
+           $query = "SELECT * FROM tb_petugas WHERE username = '$username' AND password = '$password'";  
            $result = mysqli_query($koneksi, $query);  
            if(mysqli_num_rows($result) > 0)  
            {
+             $row_akun = mysqli_fetch_array($query);
+
                 $_SESSION['username'] = $username;
-                $_SESSION['level'] = 'Masyarakat';  
+                $_SESSION['level'] = 'Administrator';  
                 header("location:index.php");  
            }  
            else  
@@ -135,13 +137,13 @@ if(isset($_POST["reg_admin"]))
           <div class="form-group">
             <div class="form-label-group">
               <label for="username">Username</label>
-              <input type="text" id="username" class="form-control" name="username" maxlength="25" placeholder="Username" required="required" autofocus="autofocus" required>
+              <input type="text" class="form-control" name="username" maxlength="25" placeholder="Username" required="required" autofocus="autofocus" required>
             </div>
           </div>
           <div class="form-group">
             <div class="form-label-group">
               <label for="password">Password</label>
-              <input type="password" id="password" class="form-control" name="password" maxlength="25" placeholder="Password" required>
+              <input type="password" class="form-control" name="password" placeholder="Password" required>
             </div>
           </div>
           <div class="col-auto my-1">
