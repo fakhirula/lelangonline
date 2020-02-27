@@ -17,7 +17,7 @@ if(isset($_SESSION["username"]))
     <hr>
     <?php 
     if(!isset($_SESSION['username'])) { ?>
-    <p class="">Belum punya akun? atau sudah ada akun?</p><a href="?page=login" class="btn btn-primary">Klik!</a></p>
+    <p class="">Belum punya akun? atau sudah ada akun?</p><a href="?page=login" class="btn btn-primary">Klik!</a> atau kembali ke Halaman Masyarakat <a href="../../index.php" class="btn btn-primary">Klik!</a></p>
     <?php } ?>
   </div>
 </div>
