@@ -43,7 +43,7 @@
                   }
                 $id_barang = 1;
 
-                $sql = $koneksi->query("select * from history_lelang");
+                $sql = $koneksi->query("select * from tb_barang");
 
                 while ($data = $sql->fetch_assoc()) {
                 
@@ -57,8 +57,8 @@
                 <td><?php echo $data['harga_awal'] ?></td>
                 <td><?php echo $data['deskripsi_barang'] ?></td>
                 <td>
-                    <a href="?page=admin&perintah=edit&id_barang=<?php echo $data['id_barang'];?>" class="btn btn-info">Edit</a>
-                    <a onclick="return confirm('Anda yakin akan menghapusnya?')" href="?page=admin&perintah=delete&id_barang=<?php echo $data['id_barang'];?>" class="btn btn-danger">Hapus</a>
+                    <a href="?page=admin&perintah=edit&id_barang=<?php echo $data['id_barang'];?>" class="btn btn-info">Dibuka</a>
+                    <a onclick="return confirm('Anda yakin akan menghapusnya?')" href="?page=admin&perintah=delete&id_barang=<?php echo $data['id_barang'];?>" class="btn btn-danger">Ditutup</a>
                 </td>
             </tr>
 

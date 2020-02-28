@@ -58,17 +58,16 @@ $row_akun = mysqli_fetch_array($query);
           <li class="nav-item">
             <a class="nav-link" href="?page=admin&perintah=persetujuandata">Persetujuan Data Lelang</a>
           </li>
-
           <li class="nav-item dropdown no-arrow">
-          <a class="nav-link dropdown-toggle" href="#" id="userDropdown" level="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-user-circle fa-fw"><?php echo $row_akun['nama_petugas'];?></i>
-          </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-            <a class="dropdown-item"  href="?page=account">Info Akun</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item"  data-toggle="modal" data-target="#logoutModal">Logout</a>
-          </div>
-        </li>
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" level="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-user-circle fa-fw"><?php echo $row_akun['nama_petugas'];?></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+              <a class="dropdown-item"  href="?page=account">Info Akun</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item"  data-toggle="modal" data-target="#logoutModal">Logout</a>
+            </div>
+          </li>
         <?php } ?>
         </ul>
       </div>

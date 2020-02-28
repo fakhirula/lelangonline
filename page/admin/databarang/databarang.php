@@ -19,7 +19,7 @@
               <i class="fas fa-table"></i>
               Data Table Barang</div>
             <div class="card-body">
-              <a href="" class="btn btn-outline-success">Tambah</a>
+              <a href="?page=admin&perintah=tambah" class="btn btn-outline-success">Tambah</a>
               <a href="" class="btn btn-outline-warning" style="float: right;">Print</a>
               <div class="table-responsive">
 <table class="table table-striped">

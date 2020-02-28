@@ -1,15 +1,36 @@
 <!-- Page Content -->
-  <div class="container">
-
-    <div class="row">
-
-      <div class="col-lg-3">
-        <h1 class="my-4">Shop Name</h1>
-        <div class="list-group">
-          <a href="?page=lelang&perintah=detailbarang" class="list-group-item active">Produk</a>
-          <a href="?page=lelang&perintah=infopenjual" class="list-group-item">Penjual</a>
-        </div>
+<div class="container">
+<div class="row">
+  <div class="col-lg-3">
+    <h1 class="my-4">Detail Barang</h1>
+    <div class="list-group">
+      <a href="?page=lelang" class="list-group-item active">Kembali</a>
+    </div>
+    <br>
+    <hr>
+    <form method="post">
+      <div class="form-group">
+        <label for="">ID User</label>
+        <input type="text" class="form-control" name="id_user" value="<?php echo $row_akun['id_user'];?>" readonly>
       </div>
+      <div class="form-group">
+        <label for="">Nama Lengkap</label>
+        <input type="text" class="form-control" name="nama_lengkap" value="<?php echo $row_akun['nama_lengkap'];?>" readonly>
+      </div>
+      <div class="form-group">
+      <label for="">Penawaran Harga</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text">Rp.</div>
+        </div>
+        <input type="number" name="penawaran_harga" class="form-control"  placeholder="Harga awal...">
+      </div>
+      </div>
+      <input type="submit" name="tawar" value="Tawar!" class="btn btn-primary">
+    </form>
+    <hr>
+  </div>
+
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
@@ -37,10 +58,6 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
             <small class="text-muted">Posted by Anonymous on 3/1/17</small>
             <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <a href="#" class="btn btn-success">Leave a Review</a>
           </div>
         </div>
         <!-- /.card -->
