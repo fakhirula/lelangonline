@@ -89,8 +89,6 @@ if($_SESSION["level"]=='Administrator')
           include 'page/lelang/lelang.php';
         }elseif ($perintah == 'detailbarang') {
           include 'page/lelang/detailbarang.php';
-        }elseif ($perintah == 'penjual') {
-          include 'page/lelang/penjual.php';
         }
       }
       

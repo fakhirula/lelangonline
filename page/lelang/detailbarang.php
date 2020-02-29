@@ -1,3 +1,9 @@
+<?php
+$koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
+$id_barang   = $_GET['id_barang'];
+
+
+?>
 <!-- Page Content -->
 <div class="container">
 <div class="row">
@@ -8,6 +14,10 @@
     </div>
     <br>
     <hr>
+    <?php
+    if(isset($_SESSION["username"]))  
+    {
+    ?>
     <form method="post">
       <div class="form-group">
         <label for="">ID User</label>
@@ -29,22 +39,27 @@
       <input type="submit" name="tawar" value="Tawar!" class="btn btn-primary">
     </form>
     <hr>
+    <?php } ?>
   </div>
 
       <!-- /.col-lg-3 -->
 
       <div class="col-lg-9">
-
+<?php
+$sql = $koneksi->query("select * from tb_barang where id_barang='$id_barang'");
+while ($data = $sql->fetch_assoc()) {
+?>
         <div class="card mt-4">
           <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
           <div class="card-body">
-            <h3 class="card-title">Product Name</h3>
-            <h4>$24.99</h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente dicta fugit fugiat hic aliquam itaque facere, soluta. Totam id dolores, sint aperiam sequi pariatur praesentium animi perspiciatis molestias iure, ducimus!</p>
+            <h3 class="card-title"><?= $data['nama_barang'] ?></h3>
+            <h4><?= $data['harga_awal'] ?></h4>
+            <p class="card-text">"<?= $data['deskripsi_barang'] ?>"</p>
             <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
             4.0 stars
           </div>
         </div>
+<?php } ?>
         <!-- /.card -->
 
         <div class="card card-outline-secondary my-4">
@@ -63,7 +78,6 @@
         <!-- /.card -->
 
       </div>
-      <!-- /.col-lg-9 -->
 
     </div>
 

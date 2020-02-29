@@ -87,7 +87,7 @@ $row_akun = mysqli_fetch_array($query);
       }if ($page == "admin") {
         if ($perintah == "databarang") {
           include 'databarang/databarang.php';
-        }elseif ($perintah == "hapus") {
+        }elseif ($perintah == "delete") {
           include 'databarang/delete.php';
         }elseif ($perintah == "tambah") {
           include 'databarang/tambah.php';
