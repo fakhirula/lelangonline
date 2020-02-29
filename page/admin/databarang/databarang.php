@@ -56,7 +56,7 @@
                 <td><?php echo $data['nama_barang']; ?></td>
                 <td><?php echo $data['tgl'] ?></td>
                 <td><?php echo $data['harga_awal'] ?></td>
-                <td><?php echo $data['img'] ?></td>
+                <td><?php echo $data['nama_file'] ?></td>
                 <td><?php echo $data['deskripsi_barang'] ?></td>
                 <td>
                     <a href="?page=admin&perintah=edit&id_barang=<?php echo $data['id_barang'];?>" class="btn btn-info">Edit</a>

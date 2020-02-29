@@ -9,14 +9,14 @@ if(isset($_POST["savedata"]))
   $nama_barang = $_POST['nama_barang'];
   $tgl = $_POST["tgl"];
   $harga_awal = $_POST["harga_awal"];
-  $nama_file = $_FILES['nama_file']['name'];
+  $nama_file=$_FILES['nama_file']['name'];
+  $file=$_FILES['nama_file']['tmp_name'];
   $deskripsi_barang = $_POST['deskripsi_barang'];
-
+  
   $simpan = $_POST['savedata'];
 
   if ($simpan) {
-    move_uploaded_file ($_FILES['nama_file']['tmp_name'], "file/".$nama_file);
-
+    move_uploaded_file($_FILES['nama_file']['tmp_name'], '../../img/'.$nama_file);
     $sql = $koneksi->query("insert into tb_barang (nama_barang, tgl, harga_awal, deskripsi_barang, nama_file) values('$nama_barang', '$tgl', '$harga_awal', '$deskripsi_barang', '$nama_file')");
     
     if ($sql){
@@ -45,7 +45,7 @@ if(isset($_POST["savedata"]))
   <i class="fas fa-table"></i>
   Tambah Data Barang</div>
 <div class="card-body">
-<form method="post">
+<form method="post" enctype="multipart/form-data">
   <div class="form-group">
     <label for="">Nama Barang</label>
     <input type="text" class="form-control" name="nama_barang" placeholder="Nama barang...">
