@@ -5,16 +5,19 @@ $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
 
 //Reg Masyarakat
 if(isset($_POST["savedata"]))  
- {   
+ {
   $nama_barang = $_POST['nama_barang'];
   $tgl = $_POST["tgl"];
   $harga_awal = $_POST["harga_awal"];
+  $nama_file = $_FILES['nama_file']['name'];
   $deskripsi_barang = $_POST['deskripsi_barang'];
 
   $simpan = $_POST['savedata'];
 
-  if ($simpan) {  
-    $sql = $koneksi->query("insert into tb_barang (nama_barang, tgl, harga_awal, deskripsi_barang) values('$nama_barang', '$tgl', '$harga_awal', '$deskripsi_barang')");
+  if ($simpan) {
+    move_uploaded_file ($_FILES['nama_file']['tmp_name'], "file/".$nama_file);
+
+    $sql = $koneksi->query("insert into tb_barang (nama_barang, tgl, harga_awal, deskripsi_barang, nama_file) values('$nama_barang', '$tgl', '$harga_awal', '$deskripsi_barang', '$nama_file')");
     
     if ($sql){
       ?>
@@ -58,7 +61,14 @@ if(isset($_POST["savedata"]))
       <div class="input-group-text">Rp.</div>
     </div>
     <input type="number" name="harga_awal" class="form-control"  placeholder="Harga awal...">
+    <div class="input-group-append">
+    <span class="input-group-text">.00</span>
   </div>
+  </div>
+  </div>
+  <div class="form-group">
+    <label for="">Image</label>
+    <input type="file" name="nama_file" class="form-control">
   </div>
   <div class="form-group">
     <label for="">Deskripsi Barang</label>
