@@ -55,9 +55,12 @@ $row_akun = mysqli_fetch_array($query);
           <li class="nav-item">
             <a class="nav-link" href="?page=admin&perintah=databarang">Data Barang</a>
           </li>
+          <?php
+          if($_SESSION["level"]=='Petugas') { ?>
           <li class="nav-item">
             <a class="nav-link" href="?page=admin&perintah=persetujuandata">Persetujuan Data Lelang</a>
           </li>
+          <?php } ?>
           <li class="nav-item dropdown no-arrow">
             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" level="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-user-circle fa-fw"><?php echo $row_akun['nama_petugas'];?></i>
@@ -93,6 +96,8 @@ $row_akun = mysqli_fetch_array($query);
           include 'databarang/tambah.php';
         }elseif ($perintah == "edit") {
           include 'databarang/edit.php';
+        }elseif ($perintah == "print") {
+          include 'databarang/print.php';
         }elseif ($perintah == "persetujuandata") {
           include 'databarang/persetujuanlelang.php';
         }elseif ($perintah == "setujui") {

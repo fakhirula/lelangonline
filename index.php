@@ -4,7 +4,7 @@ ob_start();
 session_start();
 include 'koneksi.php';
   $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
-if($_SESSION["level"]=='Administrator')  
+if($_SESSION["level"]=='Administrator' || $_SESSION["level"]=='Petugas')  
  {  
       header("location:page/admin/index.php");  
  }
