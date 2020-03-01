@@ -21,7 +21,7 @@
 ?>
       <div class="col-md-4 mb-5">
         <div class="card h-100 shadow">
-          <img class="card-img-top" src="img/<?= $row['nama_file'] ?>" alt="">
+          <img class="card-img-top"  height="300" src="img/<?= $row['nama_file'] ?>" alt="">
           <div class="card-body">
             <h4 class="card-title"><?= $row['nama_barang'] ?></h4>
             <p class="card-text lead">Rp.<?= $row['harga_awal'] ?></p>

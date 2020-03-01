@@ -50,7 +50,8 @@ $sql = $koneksi->query("select * from tb_barang where id_barang='$id_barang'");
 while ($data = $sql->fetch_assoc()) {
 ?>
         <div class="card mt-4">
-          <img class="card-img-top img-fluid" src="http://placehold.it/900x400" alt="">
+          <center>
+          <img class="card-img-top img-fluid" style=" height: 400px;" src="img/<?= $data['nama_file'] ?>" alt=""></center>
           <div class="card-body">
             <h3 class="card-title"><?= $data['nama_barang'] ?></h3>
             <h4><?= $data['harga_awal'] ?></h4>
