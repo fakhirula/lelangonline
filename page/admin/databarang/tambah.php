@@ -3,7 +3,6 @@
 $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
 
 
-//Reg Masyarakat
 if(isset($_POST["savedata"]))  
  {
   $nama_barang = $_POST['nama_barang'];

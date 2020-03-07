@@ -24,34 +24,33 @@ if(isset($_SESSION["username"]))
     
 
     <hr>
-    <!-- /.row -->
     <div class="row">
-      <div class="col-md-8 mb-5">
-        <h2>What We Do</h2>
-        <hr>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
-        <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
-      </div>
+<?php 
+    $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
+
+    if(mysqli_connect_error()){
+      echo 'Gagal melakukan koneksi ke Database : '.mysqli_connect_error();
+    }
+
+    $querykamu = mysqli_query($koneksi, "Select * From tb_lelang Where status='dibuka'");
+    while ($data = mysqli_fetch_array($querykamu))
+    {
+      $id_barang = $data['id_barang'];
+      $query_barang = mysqli_query($koneksi, "Select * From tb_barang Where id_barang='$id_barang'");
+      $data_barang = mysqli_fetch_assoc($query_barang);
+      $harga_rupiah = "Rp. " . number_format($data_barang['harga_awal'],2,',','.');
+?>
       <div class="col-md-4 mb-5">
-        <h2>Contact Us</h2>
-        <hr>
-        <address>
-          <strong>Lelang.co.id</strong>
-          <br>112 27 Stockholm, Sweden
-          <br>Kungsbroplan 1, 4 fl
-          <br>
-        </address>
-        <address>
-          <abbr title="Phone">Phone:</abbr>
-          (62) 123-456-789
-          <br>
-          <abbr title="Email">Email:</abbr>
-          <a href="mailto:inyour@lelang.com">inyour@lelang.com</a>
-        </address>
+        <div class="card h-100 shadow">
+          <img class="card-img-top"  height="300" src="../../img/<?= $data_barang['nama_file'] ?>" alt="">
+          <div class="card-body">
+            <h4 class="card-title"><?= $data_barang['nama_barang'] ?></h4>
+            <p class="card-text lead"><?php echo $harga_rupiah ?></p>
+          </div>
+        </div>
       </div>
+    <?php } ?>
     </div>
-    <!-- /.row -->
 
   </div>
   <!-- /.container -->

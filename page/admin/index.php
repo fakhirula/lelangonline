@@ -98,12 +98,15 @@ $row_akun = mysqli_fetch_array($query);
           include 'databarang/edit.php';
         }elseif ($perintah == "print") {
           include 'databarang/print.php';
-        }elseif ($perintah == "persetujuandata") {
-          include 'databarang/persetujuanlelang.php';
-        }elseif ($perintah == "setujui") {
-          include 'databarang/setujui.php';
-        }elseif ($perintah == "tidaksetuju") {
-          include 'databarang/tidaksetuju.php';
+        }
+
+
+        elseif ($perintah == "persetujuandata") {
+          include '../lelang/persetujuanlelang.php';
+        }elseif ($perintah == "bukalelang") {
+          include '../lelang/bukalelang.php';
+        }elseif ($perintah == "tutuplelang") {
+          include '../lelang/tutuplelang.php';
         }
       }
       elseif ($page == ""){

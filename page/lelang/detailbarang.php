@@ -62,7 +62,7 @@ while ($data = $sql->fetch_assoc()) {
   <tbody>
     <tr>
       <td>No Lelang</td>
-      <td></td>
+      <td><?= $data['id_lelang'] ?></td>
     </tr>
     <tr>
       <td>Deskripsi Barang</td>
@@ -70,15 +70,15 @@ while ($data = $sql->fetch_assoc()) {
     </tr>
     <tr>
       <td>Tgl Lelang</td>
-      <td></td>
+      <td><?= $data['tgl_lelang'] ?></td>
     </tr>
     <tr>
       <td>Nama Petugas</td>
-      <td></td>
+      <td><?= $data['nama_petugas'] ?></td>
     </tr>
     <tr>
       <td>Status</td>
-      <td></td>
+      <td><?= $data['status'] ?></td>
     </tr>
   </tbody>
 </table>

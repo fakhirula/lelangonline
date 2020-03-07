@@ -15,23 +15,26 @@
     if(mysqli_connect_error()){
       echo 'Gagal melakukan koneksi ke Database : '.mysqli_connect_error();
     }
-    $querykamu = mysqli_query($koneksi, 'SELECT * FROM tb_barang');
-    $id_barang   = $_GET['id_barang'];
-    foreach( $querykamu as $row ) :
-      $harga_rupiah = "Rp. " . number_format($row['harga_awal'],2,',','.');
+    $querykamu = mysqli_query($koneksi, "Select * From tb_lelang Where status='dibuka'");
+    while ($data = mysqli_fetch_array($querykamu))
+    {
+      $id_barang = $data['id_barang'];
+      $query_barang = mysqli_query($koneksi, "Select * From tb_barang Where id_barang='$id_barang'");
+      $data_barang = mysqli_fetch_assoc($query_barang);
+      $harga_rupiah = "Rp. " . number_format($data_barang['harga_awal'],2,',','.');
 ?>
       <div class="col-md-4 mb-5">
         <div class="card h-100 shadow">
-          <img class="card-img-top"  height="300" src="img/<?= $row['nama_file'] ?>" alt="">
+          <img class="card-img-top"  height="300" src="img/<?= $data_barang['nama_file'] ?>" alt="">
           <div class="card-body">
-            <h4 class="card-title"><?= $row['nama_barang'] ?></h4>
+            <h4 class="card-title"><?= $data_barang['nama_barang']; ?></h4>
             <p class="card-text lead"><?php echo $harga_rupiah ?></p>
           </div>
           <div class="card-footer">
-            <a href="?page=lelang&perintah=detailbarang&id_barang=<?php echo $row['id_barang'];?>" class="btn btn-secondary">Detail!</a>
+            <a href="?page=lelang&perintah=detailbarang&id_barang=<?php echo $data_barang['id_barang'];?>" class="btn btn-secondary">Detail!</a>
           </div>
         </div>
       </div>
-      <?php endforeach; ?>
+      <?php } ?>
     </div>
 </div>

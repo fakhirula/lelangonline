@@ -4,8 +4,7 @@ $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
 $id_barang   = $_GET['id_barang'];
 
 if(isset($_POST["edit"]))  
- {
-  $id_barang = $_POST['id_barang'];   
+ {  
   $nama_barang = $_POST['nama_barang'];
   $harga_awal = $_POST["harga_awal"];
   $deskripsi_barang = $_POST['deskripsi_barang'];
@@ -13,12 +12,12 @@ if(isset($_POST["edit"]))
   $simpan = $_POST['edit'];
 
   if ($simpan) {  
-    $sql = $koneksi->query("update into tb_barang (id_barang, nama_barang, harga_awal, deskripsi_barang) values('$id_barang', '$nama_barang', '$harga_awal', '$deskripsi_barang')");
+    $sql = $koneksi->query("update tb_barang set nama_barang='$nama_barang', harga_awal='$harga_awal', deskripsi_barang='$deskripsi_barang' where id_barang='$id_barang'");
     
     if ($sql){
       ?>
         <script type="text/javascript">
-          alert("Data Barang is saved");
+          alert("Data Barang is updated");
           window.location.href="?page=admin&perintah=databarang";
         </script>
 
