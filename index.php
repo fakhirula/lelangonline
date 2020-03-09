@@ -57,6 +57,9 @@ if($_SESSION["level"]=='Administrator' || $_SESSION["level"]=='Petugas')
 
         <?php 
         if(isset($_SESSION['username'])) { ?>
+          <li class="nav-item">
+            <a class="nav-link" href="?page=lelang&perintah=pengumuman">Pemenang Lelang</a>
+          </li>
           <li class="nav-item dropdown no-arrow">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" level="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-user-circle fa-fw"><?php echo $row_akun['nama_lengkap'];?></i>
@@ -89,6 +92,8 @@ if($_SESSION["level"]=='Administrator' || $_SESSION["level"]=='Petugas')
           include 'page/lelang/lelang.php';
         }elseif ($perintah == 'detailbarang') {
           include 'page/lelang/detailbarang.php';
+        }elseif ($perintah == 'pengumuman') {
+          include 'page/lelang/pengumuman.php';
         }
       }
       
