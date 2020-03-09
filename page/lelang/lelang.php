@@ -18,7 +18,7 @@
     $querykamu = mysqli_query($koneksi, 'SELECT * FROM tb_barang');
     $id_barang   = $_GET['id_barang'];
     foreach( $querykamu as $row ) :
-      $harga_rupiah = "Rp" . number_format($row['harga_awal'],2,',','.');
+      $harga_rupiah = "Rp. " . number_format($row['harga_awal'],2,',','.');
 ?>
       <div class="col-md-4 mb-5">
         <div class="card h-100 shadow">

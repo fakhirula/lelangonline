@@ -18,7 +18,7 @@ $id_barang   = $_GET['id_barang'];
     if(isset($_SESSION["username"]))  
     {
     ?>
-    <form method="post">
+    <form metdod="post">
       <div class="form-group">
         <label for="">ID User</label>
         <input type="text" class="form-control" name="id_user" value="<?php echo $row_akun['id_user'];?>" readonly>
@@ -48,16 +48,40 @@ $id_barang   = $_GET['id_barang'];
 <?php
 $sql = $koneksi->query("select * from tb_barang where id_barang='$id_barang'");
 while ($data = $sql->fetch_assoc()) {
+  $harga_rupiah = "Rp. " . number_format($data['harga_awal'],2,',','.');
 ?>
         <div class="card mt-4">
           <center>
           <img class="card-img-top img-fluid" style=" height: 400px;" src="img/<?= $data['nama_file'] ?>" alt=""></center>
           <div class="card-body">
             <h3 class="card-title"><?= $data['nama_barang'] ?></h3>
-            <h4><?= $data['harga_awal'] ?></h4>
-            <p class="card-text">"<?= $data['deskripsi_barang'] ?>"</p>
-            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-            4.0 stars
+            <hr>
+            <h4><?php echo $harga_rupiah ?></h4>
+            <br>
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td>No Lelang</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Deskripsi Barang</td>
+      <td><?= $data['deskripsi_barang'] ?></td>
+    </tr>
+    <tr>
+      <td>Tgl Lelang</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Nama Petugas</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>Status</td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
           </div>
         </div>
 <?php } ?>
