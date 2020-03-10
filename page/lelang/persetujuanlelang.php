@@ -20,7 +20,7 @@ $sql = $koneksi->query("select * from tb_barang");
       <i class="fas fa-table"></i>
       Data Table Barang</div>
     <div class="card-body">
-      <a href="" class="btn btn-outline-warning" style="float: right;">Print</a>
+      <a href="?page=admin&perintah=printpersetujuan" class="btn btn-outline-warning" style="float: right;">Print</a>
       <div class="table-responsive">
 		<table class="table table-striped">
 		  <br>
@@ -46,12 +46,24 @@ $sql = $koneksi->query("select * from tb_barang");
                 <td><?php echo $data['harga_awal'] ?></td>
                 <td><?php echo $data['deskripsi_barang'] ?></td>
                 <td>
-                  <?php mysqli_query($koneksi, "SELECT * from tb_lelang where status='$status'");
-                  if($status['status']=='dibuka')  
-                  { ?>
-                    <a href="?page=admin&perintah=bukalelang&id_barang=<?php echo $data['id_barang'];?>" class="btn btn-success">Dibuka</a>
+                  <?php 
+                      $id = $data['id_barang'];
+                      $queryCekLelang = mysqli_query($koneksi, "Select * From tb_lelang Where id_barang='$id'");
+                      $dilelang = false;
+                      if (mysqli_num_rows($queryCekLelang) > 0)
+                      {
+                        $datalelang = mysqli_fetch_assoc($queryCekLelang);
+                        if ($datalelang['status'] == 'dibuka')
+                        {
+                          $dilelang = true;
+                        }
+                      }
+                      if ($dilelang)
+                      {
+                   ?>
+                    <a href="?page=admin&perintah=tutuplelang&id_barang=<?php echo $data['id_barang'];?>" class="btn btn-warning">Tutup</a>
                   <?php }else{ ?>
-                    <a onclick="return confirm('Anda yakin akan menghapusnya?')" href="?page=admin&perintah=tutuplelang&id_barang=<?php echo $data['id_barang'];?>" class="btn btn-warning">Ditutup</a>
+                    <a href="?page=admin&perintah=bukalelang&id_barang=<?php echo $data['id_barang'];?>" class="btn btn-success">Buka</a>
                   <?php } ?>
                 </td>
             </tr>

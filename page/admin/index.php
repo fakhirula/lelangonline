@@ -107,6 +107,8 @@ $row_akun = mysqli_fetch_array($query);
           include '../lelang/bukalelang.php';
         }elseif ($perintah == "tutuplelang") {
           include '../lelang/tutuplelang.php';
+        }elseif ($perintah == "printpersetujuan") {
+          include '../lelang/print.php';
         }
       }
       elseif ($page == ""){
