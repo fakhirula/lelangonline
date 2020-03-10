@@ -13,7 +13,7 @@ if(isset($_POST["save"]))
 
   $simpan = $_POST['save'];
 
-  if ($simpan) {  
+  if (mysqli_num_rows($simpan)>0) {  
     $sql = $koneksi->query("insert into tb_lelang(id_barang, tgl_lelang, id_petugas, nama_file, status) values('$id_barang', '$tgl_lelang', '$id_petugas', '$nama_file', '$status')");
     
     if ($sql){
@@ -60,7 +60,6 @@ while ($data = $sql->fetch_assoc()) {
   <?php } ?>
   <input type="submit" name="save" value="Save" class="btn btn-primary">
 </form>
-              
 </div>
 </div>
 </div>
