@@ -46,8 +46,13 @@ $sql = $koneksi->query("select * from tb_barang");
                 <td><?php echo $data['harga_awal'] ?></td>
                 <td><?php echo $data['deskripsi_barang'] ?></td>
                 <td>
+                  <?php mysqli_query($koneksi, "SELECT * from tb_lelang where status='$status'");
+                  if($status['status']=='dibuka')  
+                  { ?>
                     <a href="?page=admin&perintah=bukalelang&id_barang=<?php echo $data['id_barang'];?>" class="btn btn-success">Dibuka</a>
+                  <?php }else{ ?>
                     <a onclick="return confirm('Anda yakin akan menghapusnya?')" href="?page=admin&perintah=tutuplelang&id_barang=<?php echo $data['id_barang'];?>" class="btn btn-warning">Ditutup</a>
+                  <?php } ?>
                 </td>
             </tr>
             <?php } ?>

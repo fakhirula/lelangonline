@@ -1,5 +1,6 @@
 <?php
 $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
+$id_lelang   = $_GET['id_lelang'];
 $id_barang   = $_GET['id_barang'];
 
 
@@ -46,9 +47,14 @@ $id_barang   = $_GET['id_barang'];
 
       <div class="col-lg-9">
 <?php
-$sql = $koneksi->query("select * from tb_barang where id_barang='$id_barang'");
+$sql = $koneksi->query("select * from tb_lelang where id_barang='$id_barang'");
 while ($data = $sql->fetch_assoc()) {
-  $harga_rupiah = "Rp. " . number_format($data['harga_awal'],2,',','.');
+      $id_barang = $data['id_barang'];
+      $id_lelang = $data['id_lelang'];
+      $query_barang = mysqli_query($koneksi, "Select * From tb_barang where id_barang='$id_barang' ");
+      $data = mysqli_fetch_assoc($query_barang);
+      $harga_rupiah = "Rp. " . number_format($data['harga_awal'],2,',','.');
+  
 ?>
         <div class="card mt-4">
           <center>
