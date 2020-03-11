@@ -29,6 +29,7 @@ if($_SESSION["level"]=='Administrator' || $_SESSION["level"]=='Petugas')
 
   <!-- Custom styles for this template -->
   <link href="vendor/bootstrap/css/business-frontpage.css" rel="stylesheet">
+  <link rel="shortcut icon" href="img/title.png">
 
 </head>
 
