@@ -52,15 +52,15 @@ while ($data = $sql->fetch_assoc()) {
       $id_barang = $data['id_barang'];
       $id_lelang = $data['id_lelang'];
       $query_barang = mysqli_query($koneksi, "Select * From tb_barang where id_barang='$id_barang' ");
-      $data = mysqli_fetch_assoc($query_barang);
-      $harga_rupiah = "Rp. " . number_format($data['harga_awal'],2,',','.');
+      $databarang = mysqli_fetch_assoc($query_barang);
+      $harga_rupiah = "Rp. " . number_format($databarang['harga_awal'],2,',','.');
   
 ?>
         <div class="card mt-4">
           <center>
           <img class="card-img-top img-fluid" style=" height: 400px;" src="img/<?= $data['nama_file'] ?>" alt=""></center>
           <div class="card-body">
-            <h3 class="card-title"><?= $data['nama_barang'] ?></h3>
+            <h3 class="card-title"><?= $databarang['nama_barang'] ?></h3>
             <hr>
             <h4><?php echo $harga_rupiah ?></h4>
             <br>
@@ -72,15 +72,11 @@ while ($data = $sql->fetch_assoc()) {
     </tr>
     <tr>
       <td>Deskripsi Barang</td>
-      <td><?= $data['deskripsi_barang'] ?></td>
+      <td><?= $databarang['deskripsi_barang'] ?></td>
     </tr>
     <tr>
       <td>Tgl Lelang</td>
       <td><?= $data['tgl_lelang'] ?></td>
-    </tr>
-    <tr>
-      <td>Nama Petugas</td>
-      <td><?= $data['nama_petugas'] ?></td>
     </tr>
     <tr>
       <td>Status</td>
