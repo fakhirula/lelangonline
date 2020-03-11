@@ -10,20 +10,23 @@ if(isset($_POST["save"]))
   $id_petugas = $_POST["id_petugas"];
   $nama_file = $_POST['nama_file'];
   $status = 'dibuka';
-
+  $sql = mysqli_query($koneksi, "Select * From tb_lelang Where id_barang='$id_barang'");
   $simpan = $_POST['save'];
 
-  if (mysqli_num_rows($simpan)>0) {  
-    $sql = $koneksi->query("insert into tb_lelang(id_barang, tgl_lelang, id_petugas, nama_file, status) values('$id_barang', '$tgl_lelang', '$id_petugas', '$nama_file', '$status')");
-    
-    if ($sql){
-      ?>
-        <script type="text/javascript">
-          alert("Data Lelang is Open");
-          window.location.href="?page=admin&perintah=persetujuandata";
-        </script>
+  if ($simpan) {  
+    if (mysqli_num_rows($sql) > 0)
+    {
+      $sql = "Update tb_lelang 
+        Set status='$status', harga_akhir='$harga_akhir', id_user=NULL, tgl_lelang='$tgl_lelang', id_petugas='$id_petugas'
+        Where id_barang='$id_barang'";
 
-      <?php
+        echo $sql;
+        if (mysqli_query($koneksi, $sql))
+        {
+          header('Location: index.php');
+        }
+    }else{
+      $sql = $koneksi->query("insert into tb_lelang(id_barang, tgl_lelang, id_petugas, nama_file, status) values('$id_barang', '$tgl_lelang', '$id_petugas', '$nama_file', '$status')");
     }
   }
 }
