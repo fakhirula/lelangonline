@@ -1,9 +1,9 @@
 <?php
 $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
-$id_lelang   = $_GET['id_lelang'];
 $id_barang   = $_GET['id_barang'];
 
-
+$sql = $koneksi->query("select * from tb_lelang where id_barang='$id_barang'");
+$data = mysqli_fetch_assoc($sql);
 ?>
 <!-- Page Content -->
 <div class="container">
@@ -19,7 +19,11 @@ $id_barang   = $_GET['id_barang'];
     if(isset($_SESSION["username"]))  
     {
     ?>
-    <form metdod="post">
+    <form metdod="post" action="penawaran.php">
+      <div class="form-group">
+        <label for="">ID Lelang</label>
+        <input type="text" class="form-control" name="id_user" value="<?php echo $data['id_lelang'];?>" readonly>
+      </div>
       <div class="form-group">
         <label for="">ID User</label>
         <input type="text" class="form-control" name="id_user" value="<?php echo $row_akun['id_user'];?>" readonly>
@@ -37,7 +41,7 @@ $id_barang   = $_GET['id_barang'];
         <input type="number" name="penawaran_harga" class="form-control"  placeholder="Harga awal...">
       </div>
       </div>
-      <input type="submit" name="tawar" value="Tawar!" class="btn btn-primary">
+      <input type="submit" name="penawaran" value="Ajukan!" class="btn btn-primary">
     </form>
     <hr>
     <?php } ?>
@@ -90,17 +94,28 @@ while ($data = $sql->fetch_assoc()) {
         <!-- /.card -->
 
         <div class="card card-outline-secondary my-4">
+          <?php 
+              $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
+
+              $querykamu = mysqli_query($koneksi, "Select * From history_lelang where id_lelang='$id_lelang'");
+              while ($datahistory = mysqli_fetch_array($querykamu))
+              {
+                $id_lelang = $datahistory['id_lelang'];
+                $id_user = $datahistory['id_user'];
+                $data_akun = mysqli_query($koneksi, "Select * From tb_masyarakat Where id_user='$id_user'");
+                $dataakun = mysqli_fetch_assoc($data_akun);
+                $penawaran = "Rp. " . number_format($datahistory['penawaran_harga'],2,',','.');
+          ?>
           <div class="card-header">
-            Product Reviews
+            Penawaran Produk
           </div>
           <div class="card-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
-            <hr>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
-            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+            <label><?php echo $dataakun['nama_lengkap']; ?> --> </label>
+            <label><?php echo $penawaran ?></label><br>
+            <small class="text-muted">no penawaran: <?php echo $datahistory['id_history']; ?></small>
             <hr>
           </div>
+        <?php } ?>
         </div>
         <!-- /.card -->
 

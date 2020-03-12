@@ -13,7 +13,6 @@ if(isset($_POST["register"]))
   $nama_lengkap = mysqli_real_escape_string($koneksi, $_POST['nama_lengkap']);
   $username = mysqli_real_escape_string($koneksi, $_POST["username"]);
   $password = mysqli_real_escape_string($koneksi, $_POST["password"]);
-  $password = base64_encode($password);
   $telp = mysqli_real_escape_string($koneksi, $_POST['telp']);
 
   $simpan = $_POST['register'];
