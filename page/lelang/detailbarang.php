@@ -86,10 +86,13 @@ while ($data = $sql->fetch_assoc()) {
         <!-- /.card -->
 
         <div class="card card-outline-secondary my-4">
+          <div class="card-header">
+            Penawaran Produk
+          </div>
           <?php 
               $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
 
-              $querykamu = mysqli_query($koneksi, "Select * From history_lelang where id_lelang='$id_lelang'");
+              $querykamu = mysqli_query($koneksi, "Select * From history_lelang where id_lelang='$id_lelang'Order By penawaran_harga Desc");
               while ($datahistory = mysqli_fetch_array($querykamu))
               {
                 $id_lelang = $datahistory['id_lelang'];
@@ -98,15 +101,12 @@ while ($data = $sql->fetch_assoc()) {
                 $dataakun = mysqli_fetch_assoc($data_akun);
                 $penawaran = "Rp. " . number_format($datahistory['penawaran_harga'],2,',','.');
           ?>
-          <div class="card-header">
-            Penawaran Produk
-          </div>
           <div class="card-body">
             <label><?php echo $dataakun['nama_lengkap']; ?> --> </label>
             <label><?php echo $penawaran ?></label><br>
             <small class="text-muted">no penawaran: <?php echo $datahistory['id_history']; ?></small>
-            <hr>
           </div>
+           <hr>
         <?php } ?>
         </div>
         <!-- /.card -->
