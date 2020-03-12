@@ -20,7 +20,7 @@ $sql = $koneksi->query("select * from tb_barang");
       <i class="fas fa-table"></i>
       Data Table Barang</div>
     <div class="card-body">
-      <a href="?page=admin&perintah=printpersetujuan" class="btn btn-outline-warning" style="float: right;">Print</a>
+      <a href="?page=admin&perintah=printpersetujuan" target="_blank" class="btn btn-outline-warning" style="float: right;">Print</a>
       <div class="table-responsive">
 		<table class="table table-striped">
 		  <br>
@@ -31,6 +31,7 @@ $sql = $koneksi->query("select * from tb_barang");
 		      <th scope="col">Tanggal</th>
 		      <th scope="col">Harga Awal</th>
 		      <th scope="col">Deskripsi Barang</th>
+          <th scope="col">Status</th>
 		      <th scope="col">Opsi</th>
 		    </tr>
 		  </thead>
@@ -45,6 +46,7 @@ $sql = $koneksi->query("select * from tb_barang");
                 <td><?php echo $data['tgl'] ?></td>
                 <td><?php echo $data['harga_awal'] ?></td>
                 <td><?php echo $data['deskripsi_barang'] ?></td>
+                <td><?php echo $data['status'] ?></td>
                 <td>
                   <?php 
                       $id = $data['id_barang'];

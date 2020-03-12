@@ -36,9 +36,9 @@ while ($data = $sql->fetch_assoc()) {
 <div class="container">
 <div class="row">
   <div class="col-lg-3">
-    <h1 class="my-4">Selamat Datang</h1>
+    <h1 class="my-4">Buka Lelang?</h1>
     <div class="list-group">
-      <a href="" class="list-group-item active">Tambah Data</a>
+      <a href="?page=admin&perintah=persetujuandata" class="list-group-item active">Kembali</a>
     </div>
   </div>
 <div class="col-lg-9">
@@ -53,6 +53,10 @@ while ($data = $sql->fetch_assoc()) {
     <input type="text" class="form-control" name="id_barang" value="<?php echo $data['id_barang'];?>" readonly>
   </div>
   <div class="form-group">
+    <label for="">Nama Barang</label>
+    <input type="text" class="form-control" name="nama_barang" value="<?php echo $data['nama_barang'];?>" readonly>
+  </div>
+  <div class="form-group">
     <label for="">Image</label>
     <input name="nama_file" value="<?php echo $data['nama_file'];?>" class="form-control"readonly>
   </div>
@@ -61,7 +65,7 @@ while ($data = $sql->fetch_assoc()) {
     <input name="id_petugas" value="<?= $row_akun['id_petugas'];?>" class="form-control"readonly>
   </div>
   <?php } ?>
-  <input type="submit" name="save" value="Save" class="btn btn-primary">
+  <input type="submit" name="save" value="Buka" class="btn btn-primary">
 </form>
 </div>
 </div>

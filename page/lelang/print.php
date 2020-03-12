@@ -12,12 +12,14 @@
   <br>
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nama Barang</th>
+      <th scope="col">ID Lelang</th>
+      <th scope="col">ID Barang</th>
       <th scope="col">Tanggal</th>
-      <th scope="col">Harga Awal</th>
+      <th scope="col">Harga Akhir</th>
       <th scope="col">Images</th>
-      <th scope="col">Deskripsi Barang</th>
+      <th scope="col">ID User</th>
+      <th scope="col">ID Petugas</th>
+      <th scope="col">Status</th>
     </tr>
   </thead>
   <tbody>
@@ -27,9 +29,8 @@
                   if(mysqli_connect_error()){
                     echo 'Gagal melakukan koneksi ke Database : '.mysqli_connect_error();
                   }
-                $id_barang = 1;
 
-                $sql = $koneksi->query("select * from tb_barang");
+                $sql = $koneksi->query("select * from tb_lelang");
 
                 while ($data = $sql->fetch_assoc()) {
                 
@@ -37,12 +38,14 @@
              ?>
 
             <tr>
-                <td><?php echo $id_barang++; ?></td>
-                <td><?php echo $data['nama_barang']; ?></td>
-                <td><?php echo $data['tgl'] ?></td>
-                <td><?php echo $data['harga_awal'] ?></td>
+                <td><?php echo $data['id_lelang']; ?></td>
+                <td><?php echo $data['id_barang']; ?></td>
+                <td><?php echo $data['tgl_lelang'] ?></td>
+                <td><?php echo $data['harga_akhir'] ?></td>
                 <td><?php echo $data['nama_file'] ?></td>
-                <td><?php echo $data['deskripsi_barang'] ?></td>
+                <td><?php echo $data['id_user'] ?></td>
+                <td><?php echo $data['id_petugas'] ?></td>
+                <td><?php echo $data['status'] ?></td>
             </tr>
 
 

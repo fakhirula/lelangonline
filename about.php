@@ -1,3 +1,9 @@
+<?php
+  $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
+  $username = $_SESSION['username'];
+  $query = mysqli_query($koneksi, "SELECT * FROM tb_masyarakat where username = '$username'");
+  $row_akun = mysqli_fetch_array($query);
+?>
 <br>
 <div class="container">
 <div class="jumbotron card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
@@ -55,25 +61,50 @@
   <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
     <br>
     <div class="login col-md-8 mb-5">
-        <form level="form" action="" method="post">
+        <form action="send_contact.php" method="post">
+          <?php
+            if(isset($_SESSION["username"]))  
+            { 
+           ?>
           <div class="form-group">
             <div class="form-label-group">
               <label for="nama_lengkap">Nama Lengkap</label>
-              <input type="text" id="nama_lengkap" class="form-control" name="nama_lengkap" maxlength="25" placeholder="Nama Lengkap" required="required" autofocus="autofocus" required>
+              <input type="text" class="form-control" name="nama_lengkap" maxlength="25" value="<?php echo $row_akun['nama_lengkap'] ?>" required="required" readonly>
             </div>
           </div>
+          <?php }else{ ?>
           <div class="form-group">
             <div class="form-label-group">
-              <label for="Email">Email</label>
-              <input type="email" id="email" class="form-control" name="email" maxlength="25" placeholder="Email" required>
+              <label for="nama_lengkap">Nama Lengkap</label>
+              <input type="text" class="form-control" name="nama_lengkap" maxlength="25" placeholder="Nama Lengkap" required="required" autofocus="autofocus" required>
             </div>
           </div>
+          <?php } ?>
+          <?php
+            if(isset($_SESSION["username"]))  
+            { 
+           ?>
+          <div class="form-group">
+            <div class="form-label-group">
+              <label for="telp">Telp</label>
+              <input class="form-control" name="telp" maxlength="25" value="<?php echo $row_akun['telp']?>" readonly>
+            </div>
+          </div>
+          <?php }else{ ?>
+          <div class="form-group">
+            <div class="form-label-group">
+              <label for="telp">Telp</label>
+              <input class="form-control" name="telp" maxlength="25" placeholder="(62)812-3456-6789" required>
+            </div>
+          </div>
+          <?php } ?>
           <div class="form-group">
             <label for="perihal">Perihal</label><br>
-            <select class="form-control">
+            <select class="form-control" name="perihal">
               <option value="">Select one</option>
               <option value="saran">Saran</option>
               <option value="kritik">Kritik</option>
+              <option value="bug">Bug</option>
             </select>
           </div>
           <div class="form-group">
@@ -88,7 +119,7 @@
               </label>
             </div>
           </div>
-          <input type="submit" name="login" class="btn btn-primary btn-block" value="Send" />
+          <input type="submit" name="contact" class="btn btn-primary btn-block" value="Send" />
         </form>
         </div>
   </div>
