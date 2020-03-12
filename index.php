@@ -95,6 +95,8 @@ if($_SESSION["level"]=='Administrator' || $_SESSION["level"]=='Petugas')
           include 'page/lelang/detailbarang.php';
         }elseif ($perintah == 'pengumuman') {
           include 'page/lelang/pengumuman.php';
+        }elseif ($perintah == 'penawaran') {
+          include 'page/lelang/penawaran.php';
         }
       }
       

@@ -19,15 +19,7 @@ $data = mysqli_fetch_assoc($sql);
     if(isset($_SESSION["username"]))  
     {
     ?>
-    <form metdod="post" action="penawaran.php">
-      <div class="form-group">
-        <label for="">ID Lelang</label>
-        <input type="text" class="form-control" name="id_user" value="<?php echo $data['id_lelang'];?>" readonly>
-      </div>
-      <div class="form-group">
-        <label for="">ID User</label>
-        <input type="text" class="form-control" name="id_user" value="<?php echo $row_akun['id_user'];?>" readonly>
-      </div>
+    <form method="post" action="?page=lelang&perintah=penawaran" enctype="multipart/form-data">
       <div class="form-group">
         <label for="">Nama Lengkap</label>
         <input type="text" class="form-control" name="nama_lengkap" value="<?php echo $row_akun['nama_lengkap'];?>" readonly>
@@ -38,7 +30,7 @@ $data = mysqli_fetch_assoc($sql);
         <div class="input-group-prepend">
           <div class="input-group-text">Rp.</div>
         </div>
-        <input type="number" name="penawaran_harga" class="form-control"  placeholder="Harga awal...">
+        <input type="number" name="penawaran_harga" class="form-control"  placeholder="Harga awal">
       </div>
       </div>
       <input type="submit" name="penawaran" value="Ajukan!" class="btn btn-primary">

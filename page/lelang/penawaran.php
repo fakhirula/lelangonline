@@ -1,7 +1,10 @@
 <?php
 $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
+  $id_barang   = $_GET['id_barang'];
+  $id_lelang = $_GET['id_lelang'];
+  $id_user = $_GET["id_user"];
 
-  $id_lelang = $_POST['id_lelang'];
+  $id_lelang = $_POST["id_lelang"];
   $id_barang = $_POST["id_barang"];
   $id_user = $_POST["id_user"];
   $penawaran_harga = $_POST["penawaran_harga"];

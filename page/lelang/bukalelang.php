@@ -23,7 +23,7 @@ if(isset($_POST["save"]))
         echo $sql;
         if (mysqli_query($koneksi, $sql))
         {
-          header('Location: index.php');
+          header("location:?page=admin&perintah=persetujuandata");
         }
     }else{
       $sql = $koneksi->query("insert into tb_lelang(id_barang, tgl_lelang, id_petugas, nama_file, status) values('$id_barang', '$tgl_lelang', '$id_petugas', '$nama_file', '$status')");
