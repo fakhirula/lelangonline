@@ -110,12 +110,13 @@ if($_SESSION["level"]=='Administrator' || $_SESSION["level"]=='Petugas')
   ?>
   <!-- Footer -->
   <br>
-  <footer class="py-5 bg-secondary">
-    <div class="container">
-      <p class="m-0 text-left text-white">Copyright &copy; Lelang.co.id 2020</p>
-      <p class="m-0 text-left text-white">Fakhirul Akmal | SMK YAJ DEPOK</p>
+  <footer class="py-5 bg-secondary" style="">
+    <div class="">
+      <div class="container" style="">
+        <p class="m-0 text-left text-white">Copyright &copy; Lelang.co.id 2020</p>
+        <p class="m-0 text-left text-white">Fakhirul Akmal | SMK YAJ DEPOK</p>
+      </div>
     </div>
-    <!-- /.container -->
   </footer>
 
   <!-- Logout Modal-->

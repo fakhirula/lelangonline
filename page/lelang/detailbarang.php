@@ -19,7 +19,7 @@ $data = mysqli_fetch_assoc($sql);
     if(isset($_SESSION["username"]))  
     {
     ?>
-    <form method="post" action="?page=lelang&perintah=penawaran" enctype="multipart/form-data">
+    <form method="post" action="" enctype="multipart/form-data">
       <div class="form-group">
         <label for="">Nama Lengkap</label>
         <input type="text" class="form-control" name="nama_lengkap" value="<?php echo $row_akun['nama_lengkap'];?>" readonly>
@@ -43,14 +43,13 @@ $data = mysqli_fetch_assoc($sql);
 
       <div class="col-lg-9">
 <?php
-$sql = $koneksi->query("select * from tb_lelang where id_barang='$id_barang'");
+$sql = $koneksi->query("SELECT * from tb_lelang where id_barang='$id_barang' && status='dibuka'");
 while ($data = $sql->fetch_assoc()) {
       $id_barang = $data['id_barang'];
       $id_lelang = $data['id_lelang'];
       $query_barang = mysqli_query($koneksi, "Select * From tb_barang where id_barang='$id_barang' ");
       $databarang = mysqli_fetch_assoc($query_barang);
       $harga_rupiah = "Rp. " . number_format($databarang['harga_awal'],2,',','.');
-  
 ?>
         <div class="card mt-4">
           <center>
@@ -60,29 +59,29 @@ while ($data = $sql->fetch_assoc()) {
             <hr>
             <h4><?php echo $harga_rupiah ?></h4>
             <br>
-<table class="table table-striped">
-  <tbody>
-    <tr>
-      <td>No Lelang</td>
-      <td><?= $data['id_lelang'] ?></td>
-    </tr>
-    <tr>
-      <td>Deskripsi Barang</td>
-      <td><?= $databarang['deskripsi_barang'] ?></td>
-    </tr>
-    <tr>
-      <td>Tgl Lelang</td>
-      <td><?= $data['tgl_lelang'] ?></td>
-    </tr>
-    <tr>
-      <td>Status</td>
-      <td><?= $data['status'] ?></td>
-    </tr>
-  </tbody>
-</table>
+            <table class="table table-striped">
+              <tbody>
+                <tr>
+                  <td>No Lelang</td>
+                  <td><?= $data['id_lelang'] ?></td>
+                </tr>
+                <tr>
+                  <td>Deskripsi Barang</td>
+                  <td><?= $databarang['deskripsi_barang'] ?></td>
+                </tr>
+                <tr>
+                  <td>Tgl Lelang</td>
+                  <td><?= $data['tgl_lelang'] ?></td>
+                </tr>
+                <tr>
+                  <td>Status</td>
+                  <td><?= $data['status'] ?></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
-<?php } ?>
+
         <!-- /.card -->
 
         <div class="card card-outline-secondary my-4">
@@ -106,10 +105,11 @@ while ($data = $sql->fetch_assoc()) {
             <label><?php echo $penawaran ?></label><br>
             <small class="text-muted">no penawaran: <?php echo $datahistory['id_history']; ?></small>
           </div>
-           <hr>
-        <?php } ?>
+           
+            <?php } ?>
+      <?php } ?>
         </div>
-        <!-- /.card -->
+        
 
       </div>
 
