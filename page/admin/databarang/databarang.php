@@ -1,6 +1,7 @@
 <!-- Page Content -->
   <div class="container">
-
+<?php
+  if($_SESSION["level"]=='Petugas' || $_SESSION["level"]=='Administrator') { ?>
     <div class="row">
       <div class="col-lg-12">
         <div class="card">
@@ -63,4 +64,10 @@
 </div>
 </div>
 </div>
+<?php }
+if($_SESSION["level"]=='Masyarakat' || empty($_SESSION))
+  {
+  include 'error404admin.php';
+  }
+  ?>
 </div>

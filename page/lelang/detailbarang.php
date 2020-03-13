@@ -7,6 +7,10 @@ $data = mysqli_fetch_assoc($sql);
 ?>
 <!-- Page Content -->
 <div class="container">
+  <?php
+$sql = $koneksi->query("SELECT * from tb_lelang where id_barang='$id_barang' && status='dibuka'");
+while ($data = $sql->fetch_assoc()) {
+  ?>
 <div class="row">
   <div class="col-lg-3">
     <h1 class="my-4">Detail Barang</h1>
@@ -43,8 +47,6 @@ $data = mysqli_fetch_assoc($sql);
 
       <div class="col-lg-9">
 <?php
-$sql = $koneksi->query("SELECT * from tb_lelang where id_barang='$id_barang' && status='dibuka'");
-while ($data = $sql->fetch_assoc()) {
       $id_barang = $data['id_barang'];
       $id_lelang = $data['id_lelang'];
       $query_barang = mysqli_query($koneksi, "Select * From tb_barang where id_barang='$id_barang' ");
@@ -81,7 +83,6 @@ while ($data = $sql->fetch_assoc()) {
             </table>
           </div>
         </div>
-
         <!-- /.card -->
 
         <div class="card card-outline-secondary my-4">
@@ -107,7 +108,12 @@ while ($data = $sql->fetch_assoc()) {
           </div>
            
             <?php } ?>
-      <?php } ?>
+      <?php }
+      if (mysqli_num_rows($sql) <= 0)
+      {
+      include 'error404.php';
+      }
+      ?>
         </div>
         
 

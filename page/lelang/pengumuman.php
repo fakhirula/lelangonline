@@ -1,5 +1,6 @@
-
 <div class="container">
+  <?php
+  if($_SESSION["level"]=='Masyarakat') { ?>
   <div class="jumbotron shadow rounded" style="background: url(img/jumbotron.jpg);">
   <div class="container">
     <h1 class="display-4">Tab Info Menang Lelang.</h1>
@@ -33,4 +34,10 @@
       </div>
       <?php endforeach; ?>
     </div>
+    <?php }
+if(empty($_SESSION))
+  {
+  include 'error404.php';
+  }
+  ?>
 </div>

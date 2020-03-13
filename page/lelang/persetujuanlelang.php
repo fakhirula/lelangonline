@@ -9,8 +9,10 @@ $id_barang = 1;
 
 $sql = $koneksi->query("select * from tb_barang");
 ?>
-<div class="container">
 
+<div class="container">
+  <?php
+  if($_SESSION["level"]=='Petugas') { ?>
 <div class="row">
 <div class="col-lg-12">
 <div class="card">
@@ -80,5 +82,10 @@ $sql = $koneksi->query("select * from tb_barang");
 </div>
 </div>
 </div>
+<?php }
+if ($_SESSION["level"]=='Administrator')
+  {
+  include 'error404admin.php';
+  }
+  ?>
 </div>
-
