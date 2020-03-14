@@ -13,7 +13,7 @@ $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
     if ($sql){
       ?>
         <script type="text/javascript">
-          alert("Terkirim");
+          alert("Terima kasih,, pesanmu sudah terkirim");
           window.location.href="index.php";
         </script>
 

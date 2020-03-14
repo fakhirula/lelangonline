@@ -5,7 +5,7 @@
   { 
  ?>
     <div class="alert alert-success alert-dismissible fade show" role="alert">
-      <strong>Hi <?php echo $row_akun['nama_lengkap'];?>!</strong> Kamu berhasil login sebagai <?php echo $_SESSION['level']; ?>.
+      <strong>Hi <?php echo $row_akun['nama_lengkap'];?>!</strong> You have successfully logged in as <?php echo $_SESSION['level']; ?>.
       <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
       </button>
@@ -14,7 +14,7 @@
 <div class="jumbotron card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
   <div class="container">
     <h1 class="display-3">Web Sistem<br> Lelang Online.</h1>
-    <p class="">Selamat Datang di web Sistem Lelang Online.</p>
+    <p class="">Welcome to the Online Auction System Web.</p>
     <hr>
     <?php
     if(isset($_SESSION['username'])) { ?>
@@ -22,8 +22,8 @@
     <?php } ?>
     <?php
     if(!isset($_SESSION['username'])) { ?>
-    <p class="">Belum punya akun? atau sudah ada akun?</p>
-    <p class="">Pilih sebagai <a href="?page=login" class="btn btn-primary">Masyarakat</a> / <a href="page/admin/index.php" class="btn btn-primary">Admin</a></p>
+    <p class="">Don't have an account? or already have an account?</p>
+    <p class="">Select as <a href="?page=login" class="btn btn-primary">Masyarakat</a> / <a href="page/admin/index.php" class="btn btn-primary">Admin</a></p>
     <?php } ?>
   </div>
 </div>

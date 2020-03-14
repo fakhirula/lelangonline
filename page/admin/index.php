@@ -122,9 +122,11 @@ $row_akun = mysqli_fetch_array($query);
       include 'account.php';
     }elseif ($page == "pesan") {
       include 'pesan.php';
+      if ($perintah == "delpesan") {
+      include 'delpesan.php';
+    }
     }
   ?>
-
   <!-- Footer -->
   <br>
   <footer class="py-5 bg-dark">
@@ -134,7 +136,6 @@ $row_akun = mysqli_fetch_array($query);
     </div>
     <!-- /.container -->
   </footer>
-
   <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" level="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" level="document">
@@ -153,7 +154,6 @@ $row_akun = mysqli_fetch_array($query);
         </div>
       </div>
     </div>
-
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

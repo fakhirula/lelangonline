@@ -25,37 +25,37 @@
       <th scope="col">Opsi</th>
     </tr>
   </thead>
+  <?php 
+    $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
+
+      if(mysqli_connect_error()){
+        echo 'Gagal melakukan koneksi ke Database : '.mysqli_connect_error();
+      }
+    $id_hubungi = 1;
+
+    $sql = $koneksi->query("select * from hubungi");
+
+    while ($data = $sql->fetch_assoc()) {
+  ?>
   <tbody>
-    <?php 
-                $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
-
-                  if(mysqli_connect_error()){
-                    echo 'Gagal melakukan koneksi ke Database : '.mysqli_connect_error();
-                  }
-                $id_contact = 1;
-
-                $sql = $koneksi->query("select * from hubungi");
-
-                while ($data = $sql->fetch_assoc()) {
-             ?>
-
-            <tr>
-                <td><?php echo $id_contact++; ?></td>
-                <td><?php echo $data['nama_lengkap']; ?></td>
-                <td><?php echo $data['telp'] ?></td>
-                <td><?php echo $data['tgl'] ?></td>
-                <td><?php echo $data['perihal'] ?></td>
-                <td><?php echo $data['masalah'] ?></td>
-                <td>
-                    <a onclick="return confirm('Anda yakin akan menghapusnya?')" href="?page=admin&perintah=delete&id_barang=<?php echo $data['id_barang'];?>" class="btn btn-danger">Hapus</a>
-                </td>
-            </tr>
-
-
-
-        <?php } ?>
+  <tr>
+      <td><?php echo $id_hubungi++; ?></td>
+      <td><?php echo $data['nama_lengkap']; ?></td>
+      <td><?php echo $data['telp'] ?></td>
+      <td><?php echo $data['tgl'] ?></td>
+      <td><?php echo $data['perihal'] ?></td>
+      <td><?php echo $data['masalah'] ?></td>
+      <td>
+          <a onclick="return confirm('Anda yakin akan menghapusnya?')" href="?page=pesan&perintah=delpesan&id_hubungi=<?php echo $data['id_hubungi'];?>" class="btn btn-danger">Hapus</a>
+      </td>
+  </tr>
+  <?php } ?>
   </tbody>
 </table>
+<?php if (mysqli_num_rows($sql) <= 0) {
+    include 'error505admin.php';
+  }
+  ?>
 </div>
 </div>
 </div>

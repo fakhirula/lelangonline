@@ -12,12 +12,11 @@ if(isset($_SESSION["username"]))
 <?php } ?>
 <div class="jumbotron card card-image" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
   <div class="container">
-    <h5 class="display-5">Selamat Datang di halaman Admin & Petugas.</h5>
     <h1 class="display-4">Sistem Lelang Online</h1>
     <hr>
     <?php 
     if(!isset($_SESSION['username'])) { ?>
-    <p class="">Belum punya akun? atau sudah ada akun?</p><a href="?page=login" class="btn btn-primary">Klik!</a> atau kembali ke Halaman Masyarakat <a href="../../index.php" class="btn btn-primary">Klik!</a></p>
+    <p class="">Don't have an account? or already have an account?</p><a href="?page=login" class="btn btn-primary">Klik!</a> or return to the Masyarakat Page <a href="../../index.php" class="btn btn-primary">Klik!</a></p>
     <?php } ?>
   </div>
 </div>

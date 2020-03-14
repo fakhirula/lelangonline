@@ -102,8 +102,8 @@
             <label for="perihal">Perihal</label><br>
             <select class="form-control" name="perihal">
               <option value="">Select one</option>
-              <option value="saran">Saran</option>
-              <option value="kritik">Kritik</option>
+              <option value="pertanyaan">Pertanyaan</option>
+              <option value="sarankritik">Saran & Kritik</option>
               <option value="bug">Bug</option>
             </select>
           </div>
