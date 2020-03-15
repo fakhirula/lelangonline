@@ -107,7 +107,10 @@ while ($data = $sql->fetch_assoc()) {
             <small class="text-muted">no penawaran: <?php echo $datahistory['id_history']; ?></small>
           </div>
            
-            <?php } ?>
+            <?php } if (mysqli_num_rows($querykamu) <= 0)
+                    {
+                    echo'<br><center><p>Belum ada penawaran harga yang dilakukan.</p></center>';
+                    } ?>
       <?php }
       if (mysqli_num_rows($sql) <= 0)
       {

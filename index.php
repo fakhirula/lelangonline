@@ -26,6 +26,7 @@ if($_SESSION["level"]=='Administrator' || $_SESSION["level"]=='Petugas')
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="vendor/bootstrap/css/spin.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
   <link href="vendor/bootstrap/css/business-frontpage.css" rel="stylesheet">
@@ -33,9 +34,12 @@ if($_SESSION["level"]=='Administrator' || $_SESSION["level"]=='Petugas')
 
 </head>
 
-<body>
+<body onload="myFunction()" style="margin:0;">
+<div id="loader"></div>
+<div style="display:none;" id="myDiv" class="animate-bottom">
 
   <!-- Navigation -->
+  <div class="loading"></div>
   <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top shadow" style="background: url(img/jumbotron.jpg);">
     <div class="container">
       <a class="navbar-brand" href="index.php">Lelang IND</a>
@@ -111,12 +115,10 @@ if($_SESSION["level"]=='Administrator' || $_SESSION["level"]=='Petugas')
   <!-- Footer -->
   <br>
   <footer class="py-5 bg-secondary" style="">
-    <div class="">
       <div class="container" style="">
         <p class="m-0 text-left text-white">Copyright &copy; Lelang.co.id 2020</p>
         <p class="m-0 text-left text-white">Fakhirul Akmal | SMK YAJ DEPOK</p>
       </div>
-    </div>
   </footer>
 
   <!-- Logout Modal-->
@@ -141,6 +143,7 @@ if($_SESSION["level"]=='Administrator' || $_SESSION["level"]=='Petugas')
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/bootstrap/js/spin.js"></script>
 
 </body>
 

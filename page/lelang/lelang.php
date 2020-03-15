@@ -35,7 +35,7 @@ while ($data = mysqli_fetch_array($querykamu))
       </div>
       <?php }
       if (mysqli_num_rows($querykamu) <= 0) {
-        include 'error505.php';
+        echo '<center><br><h3 style="color:red;">Sorry, no items have been auctioned yet.</h3></center><br>';
       }
       ?>
     </div>
