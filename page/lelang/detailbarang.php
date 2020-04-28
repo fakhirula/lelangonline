@@ -60,8 +60,8 @@ while ($data = $sql->fetch_assoc()) {
     if(isset($_SESSION["username"]))  
     {
     ?>
-    <form method="post" action="?page=lelang&perintah=penawaran" enctype="multipart/form-data"> <!-- ini action nya belom diisi -->
-      <input type="text" readonly style="display: none;" name="id_lelang" value="<?php echo $_GET['id_lelang']; ?>"> <!-- ini value nya diisi sama id nya masing2 pake javascript atau php -->
+    <form method="post" action="?page=lelang&perintah=penawaran" enctype="multipart/form-data">
+      <input type="text" readonly style="display: none;" name="id_lelang" value="<?php echo $_GET['id_lelang']; ?>">
       <input type="text" readonly style="display: none;" name="id_barang" value="<?php if(isset($_GET['id_barang'])) { echo $_GET['id_barang']; } ?>">
       <div class="form-group">
         <label for="">ID User</label>
@@ -154,10 +154,10 @@ while ($data = $sql->fetch_assoc()) {
                     echo'<br><center><p>No price quote has been made yet.</p></center>';
                     } ?>
       <?php }
-        // if (mysqli_num_rows($sql) <= 0)
-        // {
-        // include 'error404.php';
-        // }
+        if (mysqli_num_rows($sql) <= 0)
+        {
+        include 'error404.php';
+        }
       ?>
         </div>
         

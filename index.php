@@ -35,7 +35,7 @@ if($_SESSION["level"]=='Administrator' || $_SESSION["level"]=='Petugas')
 
 <!-- <body onload="myFunction()" style="margin:0;">
 <div id="loader"></div>
-<div style="display:none;" id="myDiv" class="animate-bottom"> -->
+<div style="display:none;" id="myDiv" class="animate-top"> -->
 
   <!-- Navigation -->
   <div class="loading"></div>
