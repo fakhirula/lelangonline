@@ -1,43 +1,53 @@
+
 <div class="container">
-  <?php
-  if($_SESSION["level"]=='Masyarakat') { ?>
   <div class="jumbotron shadow rounded" style="background: url(img/jumbotron.jpg);">
   <div class="container">
-    <h1 class="display-4">Tab Info Menang Lelang.</h1>
-    <p class="lead">Info menang lelang.</p>
+    <h1 class="display-4">Auction tab.</h1>
+    <p class="lead">Silakan hubungi admin untuk keterangan lebih lanjut.</p>
     <hr>
   </div>
-</div> 
+</div>
 <br>
 <div class="row">
-<?php 
-    $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
+  <?php 
+include ('koneksi.php');
 
-    if(mysqli_connect_error()){
-      echo 'Gagal melakukan koneksi ke Database : '.mysqli_connect_error();
-    }
-    $querykamu = mysqli_query($koneksi, 'SELECT * FROM tb_barang');
-    $id_barang   = $_GET['id_barang'];
-    foreach( $querykamu as $row ) :
+
+$username = $_SESSION['username'];
+$queryUser = mysqli_query($koneksi, "Select * From tb_masyarakat Where username='$username'");
+$dataUser = mysqli_fetch_assoc($queryUser);
+$id_user = $dataUser['id_user'];
+
+
+$querykamu = mysqli_query($koneksi, "Select * From tb_lelang Where status='ditutup' && id_user='$id_user'");
+while ($data = mysqli_fetch_array($querykamu))
+{
+  $id_barang = $data['id_barang'];
+  $id_lelang = $data['id_lelang'];
+  $id_user = $data['id_user'];
+  $query_barang = mysqli_query($koneksi, "Select * From tb_barang Where id_barang='$id_barang'");
+  $datas = mysqli_fetch_assoc($query_barang);
+  $harga_rupiah = "Rp. " . number_format($data['harga_akhir'],2,',','.');
+
+  $query_akun = mysqli_query($koneksi, "Select * From tb_masyarakat Where id_user='$id_user'");
+  $data_akun = mysqli_fetch_assoc($query_akun);
 ?>
       <div class="col-md-4 mb-5">
         <div class="card h-100 shadow">
-          <img class="card-img-top"  height="300" src="img/<?= $row['nama_file'] ?>" alt="">
+          <img class="card-img-top"  height="300" src="img/<?= $data['nama_file'] ?>" alt="">
           <div class="card-body">
-            <h4 class="card-title"><?= $row['nama_barang'] ?></h4>
-            <p class="card-text lead">Rp.<?= $row['harga_awal'] ?></p>
+            <h4 class="card-title"><?= $datas['nama_barang']; ?></h4>
+            <p class="card-text lead"><?php echo $harga_rupiah ?></p>
           </div>
           <div class="card-footer">
-            <a href="?page=lelang&perintah=detailbarang&id_barang=<?php echo $row['id_barang'];?>" class="btn btn-secondary">Detail!</a>
+            <p class="card-text lead">Pemenang: <?= $data_akun['nama_lengkap']; ?></p>
           </div>
         </div>
       </div>
-      <?php endforeach; ?>
+      <?php }
+      if (mysqli_num_rows($querykamu) <= 0) {
+        echo '<center><br><h3 style="color:red; margin-left: 300px;">Sorry, no items have been auctioned yet.</h3></center><br>';
+      }
+      ?>
     </div>
-    <?php }
-if(empty($_SESSION))
-  {
-  include 'error404.php';
-  }
-  ?>
 </div>

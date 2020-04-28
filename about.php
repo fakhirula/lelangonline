@@ -128,26 +128,3 @@
 </div>
 </div>
 </div>
-
-
-  <section id="about">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          
-        </div>
-      </div>
-    </div>
-  </section>
-  <br>
-
-  <section id="services" class="bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto">
-          
-        </div>
-      </div>
-    </div>
-  </section>
-  <br>

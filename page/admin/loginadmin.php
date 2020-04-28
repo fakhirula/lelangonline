@@ -77,59 +77,11 @@ if(isset($_POST["reg_admin"]))
     <div class="row">
       <div class="col-md-8 mb-5">
         <br>
-        <h2>Register</h2>
+        <h2>What We Do</h2>
         <hr>
-<nav>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Administrator</a>
-  </div>
-</nav>
-<div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-    <div class="container">
-      <div class="card card-login mx-auto mt-5">
-        <div class="card-body">
-          <div class="login">
-<form method="post">
-  <div class="form-row">
-    <div class="form-group col-md-12">
-      <label>Nama Petugas</label>
-      <input type="text" class="form-control" maxlength="25" name ="nama_petugas" placeholder="Nama Lengkap" required>
-    </div>
-    <div class="form-group col-md-6">
-      <label>Username</label>
-      <input type="text" class="form-control" maxlength="25" name="username" placeholder="Username" required>
-    </div>
-    <div class="form-group col-md-6">
-      <label>Password</label>
-      <input type="password" class="form-control" maxlength="25" minlength="8" name="password" placeholder="Password" required>
-    </div>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-12">
-      <label>Level</label>
-      <input type="text" class="form-control-plaintext" name="id_level" value="1" readonly>
-    </div>
-  </div>
-  <div class="col-auto my-1">
-    <div class="custom-control custom-checkbox mr-sm-2">
-      <input type="checkbox" class="custom-control-input" id="regis" required="">
-      <label class="custom-control-label" for="regis">Saya menyetujui syarat dan ketentuan yang berlaku*</label>
-    </div>
-    <div class="custom-control custom-checkbox mr-sm-2">
-      <input type="checkbox" class="custom-control-input" id="customControlAutosizing" disabled="" checked="">
-      <label class="custom-control-label" for="customControlAutosizing">Register akun sebagai Administrator*</label>
-    </div>
-  </div>
-  <input type="submit" name="reg_admin" value="Register" class="btn btn-primary">
-</form>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-  
-</div>
+        <p>Silakan login untuk menikmati akses tak terbatas. Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
+        <a class="btn btn-primary btn-lg" href="#">Call to Action &raquo;</a>
 </div>
 
 

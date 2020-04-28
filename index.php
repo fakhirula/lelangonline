@@ -3,7 +3,6 @@
 ob_start();
 session_start();
 include 'koneksi.php';
-  $koneksi = mysqli_connect('localhost', 'root', '', 'dblelang');
 if($_SESSION["level"]=='Administrator' || $_SESSION["level"]=='Petugas')  
  {  
       header("location:page/admin/index.php");  
@@ -34,9 +33,9 @@ if($_SESSION["level"]=='Administrator' || $_SESSION["level"]=='Petugas')
 
 </head>
 
-<body onload="myFunction()" style="margin:0;">
+<!-- <body onload="myFunction()" style="margin:0;">
 <div id="loader"></div>
-<div style="display:none;" id="myDiv" class="animate-bottom">
+<div style="display:none;" id="myDiv" class="animate-bottom"> -->
 
   <!-- Navigation -->
   <div class="loading"></div>

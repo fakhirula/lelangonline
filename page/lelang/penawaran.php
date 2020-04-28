@@ -16,8 +16,8 @@ $sql = $koneksi->query("insert into history_lelang (id_lelang, id_barang, id_use
         if ($sqlupdate){
             ?>
               <script type="text/javascript">
-                alert("Terkirim");
-                window.location.href="lelang.php";
+                alert("Terkirim, Anda dialihkan kehalaman lelang");
+                 window.location.href="?page=lelang";
               </script>
 
             <?php

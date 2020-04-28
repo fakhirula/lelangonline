@@ -29,7 +29,7 @@ while ($data = mysqli_fetch_array($querykamu))
             <p class="card-text lead"><?php echo $harga_rupiah ?></p>
           </div>
           <div class="card-footer">
-            <a href="?page=lelang&perintah=detailbarang&id_barang=<?php echo $data['id_barang'];?>" class="btn btn-secondary">Detail!</a>
+            <a href="?page=lelang&perintah=detailbarang&id_barang=<?php echo $data['id_barang'];?>&id_lelang=<?php echo $id_lelang;?>" class="btn btn-secondary">Detail!</a>
           </div>
         </div>
       </div>
